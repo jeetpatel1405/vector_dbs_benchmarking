@@ -1,0 +1,206 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Setup: Create Virtual Environment",
+            "type": "shell",
+            "command": "python3 -m venv .venv",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Setup: Install Dependencies",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pip install -r requirements.txt",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Setup: Install Dev Dependencies",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pip install -r requirements-dev.txt",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Setup: Complete Setup",
+            "type": "shell",
+            "command": "python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && pip install -r requirements-dev.txt",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Docker: Start All Services",
+            "type": "shell",
+            "command": "docker-compose up -d",
+            "problemMatcher": [],
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Docker: Stop All Services",
+            "type": "shell",
+            "command": "docker-compose down",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Docker: View Logs",
+            "type": "shell",
+            "command": "docker-compose logs -f",
+            "problemMatcher": [],
+            "isBackground": true,
+            "group": "none"
+        },
+        {
+            "label": "Docker: Restart Services",
+            "type": "shell",
+            "command": "docker-compose restart",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Ollama: Pull Mistral Model",
+            "type": "shell",
+            "command": "ollama pull mistral",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Ollama: Serve",
+            "type": "shell",
+            "command": "ollama serve",
+            "isBackground": true,
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Test: Run All Tests",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pytest tests/ -v",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Test: Run with Coverage",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pytest tests/ -v --cov=src --cov-report=html --cov-report=term",
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Test: Quick Test",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pytest tests/ -v -x",
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Lint: Run Black",
+            "type": "shell",
+            "command": "source .venv/bin/activate && black src/ tests/",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Lint: Check Black",
+            "type": "shell",
+            "command": "source .venv/bin/activate && black --check src/ tests/",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Lint: Run Pylint",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pylint src/",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Lint: Run MyPy",
+            "type": "shell",
+            "command": "source .venv/bin/activate && mypy src/",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Lint: Run All",
+            "type": "shell",
+            "command": "source .venv/bin/activate && black src/ tests/ && pylint src/ && mypy src/",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Benchmark: Run Full Suite",
+            "type": "shell",
+            "command": "source .venv/bin/activate && python -m src.cli run --config configs/default.yaml",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Benchmark: Quick Test (Sample)",
+            "type": "shell",
+            "command": "source .venv/bin/activate && python -m src.cli run --config configs/default.yaml --corpus docs/corpus/sample/",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Benchmark: ChromaDB",
+            "type": "shell",
+            "command": "source .venv/bin/activate && python -m src.cli run --database chroma --config configs/chroma.yaml",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Benchmark: All Databases",
+            "type": "shell",
+            "command": "source .venv/bin/activate && python -m src.cli run --config configs/default.yaml --all",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Clean: Remove Cache Files",
+            "type": "shell",
+            "command": "find . -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null; find . -type d -name '.pytest_cache' -exec rm -rf {} + 2>/dev/null; find . -type d -name '.mypy_cache' -exec rm -rf {} + 2>/dev/null; find . -type f -name '*.pyc' -delete 2>/dev/null; echo 'Cache cleaned'",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Clean: Remove Vector Stores",
+            "type": "shell",
+            "command": "rm -rf vector_stores/* && echo 'Vector stores cleaned'",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Clean: Remove All Build Artifacts",
+            "type": "shell",
+            "command": "rm -rf build/ dist/ *.egg-info/ .pytest_cache/ .mypy_cache/ __pycache__/ htmlcov/ && echo 'Build artifacts cleaned'",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Docs: Generate API Documentation",
+            "type": "shell",
+            "command": "source .venv/bin/activate && cd docs && make html",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Docs: Open Documentation",
+            "type": "shell",
+            "command": "open docs/_build/html/index.html",
+            "problemMatcher": [],
+            "group": "none"
+        }
+    ]
+}
