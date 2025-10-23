@@ -1,0 +1,15 @@
+Arctic Ice-Albedo Feedback and Climate Change
+
+The Arctic Ocean is experiencing some of the most dramatic climate changes on Earth, largely driven by the ice-albedo feedback mechanism. This positive feedback loop has transformed the Arctic into a bellwether for global climate change.
+
+During the Arctic summer, sea ice extent has reached record lows in recent decades. Satellite observations from NASA and NSIDC (National Snow and Ice Data Center) show a clear declining trend, with some of the lowest extents recorded in the past 15 years. The multi-year ice, which is thicker and more reflective than first-year ice, has declined even more precipitously.
+
+The albedo of Arctic surfaces varies considerably. Fresh snow on sea ice has an albedo of about 0.8-0.9, meaning it reflects 80-90% of incoming solar radiation. As summer progresses and the snow melts, exposing bare ice, the albedo drops to about 0.5-0.7. When melt ponds form on the ice surface, albedo can decrease to 0.2-0.4. Finally, when ice completely melts and exposes open ocean, albedo plummets to approximately 0.06.
+
+This dramatic range in albedo values creates a powerful feedback. As ice melts, the ocean absorbs more solar radiation. Ocean temperatures in ice-free Arctic regions have increased by 2-3°C in summer months compared to historical averages. This warmer water makes it harder for ice to reform in autumn and easier for existing ice to melt in spring, perpetuating the cycle.
+
+The timing of ice melt also affects the feedback strength. Earlier melt onset in spring means the ocean is exposed to incoming solar radiation for a longer period during the high-sun summer months, maximizing heat absorption. Delayed freeze-up in autumn allows the ocean to continue absorbing heat later in the year.
+
+Arctic amplification, where the Arctic warms at approximately twice the global average rate, is primarily attributed to ice-albedo feedback, though other factors like water vapor feedback and changes in atmospheric heat transport also contribute. This rapid Arctic warming has implications far beyond the polar region, potentially affecting mid-latitude weather patterns through changes in the jet stream.
+
+Indigenous communities in the Arctic are experiencing firsthand the consequences of reduced ice cover, including changes in hunting practices, coastal erosion from increased wave action, and alterations to traditional migration routes. The ecological impacts include challenges for ice-dependent species like polar bears and changes in marine ecosystems.

@@ -1,0 +1,25 @@
+Ocean Heat Uptake and Storage
+
+The ocean plays a critical role in Earth's response to climate change by absorbing and storing vast amounts of heat. Ocean heat uptake has significant implications for sea level rise, marine ecosystems, and the rate of atmospheric warming.
+
+Since the 1970s, the ocean has absorbed more than 90% of the excess heat trapped by greenhouse gases, with the atmosphere, land, and ice sharing the remaining 10%. This heat uptake has prevented much greater atmospheric warming, though it comes with consequences for ocean properties and marine life.
+
+Heat penetrates the ocean surface through direct solar radiation and exchanges with the atmosphere. Once in the ocean, heat is transported both vertically through mixing and advection, and horizontally through ocean currents. The upper 700 meters of the ocean has absorbed the majority of this heat, though warming signals are now clearly detected at deeper levels.
+
+Measurements of ocean heat content (OHC) provide a more reliable indicator of Earth's energy imbalance than atmospheric temperature alone. Ocean heat content has increased substantially, with the rate of increase accelerating in recent decades. Between 1971 and 2010, the upper ocean gained heat at a rate of about 0.5 watts per square meter globally, with this rate increasing to approximately 1 watt per square meter in the following decade.
+
+The distribution of ocean heat uptake varies regionally due to ocean circulation patterns. The Southern Ocean absorbs disproportionately large amounts of heat due to its connection with deep ocean layers through the Antarctic Circumpolar Current and deep water formation. The North Atlantic also shows significant heat uptake, though the weakening AMOC may be reducing its efficiency.
+
+Ocean heat uptake contributes significantly to sea level rise through thermal expansion. As water warms, it expands, increasing ocean volume. Thermal expansion has accounted for roughly 30-40% of observed sea level rise since 1970, with the remainder primarily from melting ice sheets and glaciers.
+
+The vertical structure of ocean warming has important implications. Surface warming affects the mixed layer where most marine life resides, with consequences for species distribution, productivity, and ecosystem function. Warming also strengthens ocean stratification by making surface waters more buoyant, which can reduce nutrient supply to the surface and limit biological productivity.
+
+Marine heatwaves, periods of extremely warm ocean temperatures, have become more frequent and intense. These events can devastate marine ecosystems, causing coral bleaching, fish kills, and harmful algal blooms. The 2015-2016 marine heatwave in the Pacific, nicknamed "The Blob," demonstrated the far-reaching impacts of ocean temperature anomalies.
+
+Deep ocean warming, while slower than surface warming, has critical implications for long-term climate. Heat sequestered in the deep ocean remains there for centuries to millennia, representing a long-term commitment to sea level rise through thermal expansion. Deep ocean warming also reduces the ocean's capacity to absorb additional heat and carbon from the atmosphere.
+
+Observations of ocean heat content have improved dramatically through the Argo program, an array of approximately 4,000 autonomous floats that profile the upper 2,000 meters of the ocean every 10 days. Prior to Argo's deployment beginning in 2000, ocean heat content estimates were based on sparse ship measurements, leading to significant uncertainties.
+
+Future ocean heat uptake depends on both the rate of greenhouse gas emissions and ocean circulation changes. Model projections suggest the ocean will continue absorbing heat for centuries, even if emissions stabilize, due to the slow adjustment time of deep ocean temperatures. However, changes in ocean circulation, particularly any significant AMOC weakening, could alter regional patterns of heat uptake.
+
+The irreversibility of ocean heat uptake on human timescales means that even with aggressive emissions reductions, committed warming and sea level rise will continue for generations. This highlights the importance of both mitigation to limit future heat uptake and adaptation to manage unavoidable changes already locked into the ocean system.

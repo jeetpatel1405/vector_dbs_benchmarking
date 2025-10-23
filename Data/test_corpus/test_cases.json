@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tc_001",
+    "query": "What is ice-albedo feedback and how does it work?",
+    "ground_truth_answer": "Ice-albedo feedback is a positive feedback mechanism where melting ice exposes darker surfaces (ocean or land) that absorb more solar radiation, causing additional warming and further ice melt. Fresh snow reflects up to 90% of solar radiation, while ocean water absorbs much more with albedo as low as 6-10%.",
+    "relevant_doc_ids": ["doc_001", "doc_002", "doc_003"],
+    "topic": "ice_albedo"
+  },
+  {
+    "id": "tc_002",
+    "query": "How has Arctic sea ice changed in recent decades?",
+    "ground_truth_answer": "Since 1979, Arctic sea ice extent has declined by approximately 13% per decade during summer months. Multi-year ice has declined even more precipitously, with some of the lowest extents recorded in the past 15 years. This has led to Arctic amplification where the region warms at roughly twice the global average rate.",
+    "relevant_doc_ids": ["doc_002", "doc_004"],
+    "topic": "ice_albedo"
+  },
+  {
+    "id": "tc_003",
+    "query": "What are the main greenhouse gases and their warming potentials?",
+    "ground_truth_answer": "The main greenhouse gases are water vapor, carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O). Methane has a global warming potential about 28-34 times greater than CO2 over 100 years, while nitrous oxide is approximately 265 times more potent than CO2. CO2 remains in the atmosphere for centuries.",
+    "relevant_doc_ids": ["doc_006", "doc_008", "doc_009"],
+    "topic": "greenhouse_gases"
+  },
+  {
+    "id": "tc_004",
+    "query": "How does the carbon cycle work and what role do natural sinks play?",
+    "ground_truth_answer": "The carbon cycle involves exchanges between the atmosphere (850 GtC), terrestrial ecosystems (2,300 GtC), and oceans (38,000 GtC). Currently, about 45% of human emissions remain airborne while terrestrial ecosystems absorb approximately 30% and oceans absorb roughly 25% through physical dissolution and biological uptake.",
+    "relevant_doc_ids": ["doc_007"],
+    "topic": "greenhouse_gases"
+  },
+  {
+    "id": "tc_005",
+    "query": "What is the Atlantic Meridional Overturning Circulation and why is it important?",
+    "ground_truth_answer": "The AMOC is a critical ocean circulation system where warm surface water flows northward in the Atlantic, releases heat to the atmosphere, and sinks as cold dense water in the Norwegian and Labrador Seas. It transports approximately 1.5 petawatts of heat northward, significantly warming northwestern Europe by 5-10°C compared to similar latitudes.",
+    "relevant_doc_ids": ["doc_011", "doc_012"],
+    "topic": "ocean_circulation"
+  },
+  {
+    "id": "tc_006",
+    "query": "How does the ocean absorb and store heat from climate change?",
+    "ground_truth_answer": "Since the 1970s, the ocean has absorbed more than 90% of excess heat trapped by greenhouse gases. The upper 700 meters has absorbed the majority, though warming is now detected at deeper levels. Ocean heat uptake contributes to sea level rise through thermal expansion and has increased from about 0.5 W/m² globally (1971-2010) to approximately 1 W/m² more recently.",
+    "relevant_doc_ids": ["doc_013"],
+    "topic": "ocean_circulation"
+  },
+  {
+    "id": "tc_007",
+    "query": "What are upwelling systems and why are they important for marine ecosystems?",
+    "ground_truth_answer": "Upwelling systems are regions where deep, nutrient-rich water rises to the surface, typically driven by winds and the Coriolis effect. Despite covering less than 1% of the ocean surface, they account for roughly 20% of global marine fish catch. Major systems include the California, Peru-Chile, Canary, and Benguela Current systems.",
+    "relevant_doc_ids": ["doc_014"],
+    "topic": "ocean_circulation"
+  },
+  {
+    "id": "tc_008",
+    "query": "What is ocean acidification and how does it affect marine life?",
+    "ground_truth_answer": "Ocean acidification occurs as the ocean absorbs CO2, which reacts with seawater to form carbonic acid, decreasing pH. Since pre-industrial times, ocean pH has decreased by about 0.1 units (from 8.2 to 8.1), representing a 26% increase in acidity. This makes it harder for organisms like corals and mollusks to build calcium carbonate shells and skeletons.",
+    "relevant_doc_ids": ["doc_015"],
+    "topic": "ocean_circulation"
+  },
+  {
+    "id": "tc_009",
+    "query": "What is water vapor feedback and why is it important in climate change?",
+    "ground_truth_answer": "Water vapor feedback is the strongest positive feedback in the climate system. As temperature increases, the atmosphere can hold more water vapor (about 7% more per 1°C following the Clausius-Clapeyron equation). This additional water vapor, itself a greenhouse gas, traps more heat, amplifying warming. It approximately doubles the warming from CO2 alone.",
+    "relevant_doc_ids": ["doc_017"],
+    "topic": "atmospheric_physics"
+  },
+  {
+    "id": "tc_010",
+    "query": "How do atmospheric circulation patterns affect global climate?",
+    "ground_truth_answer": "Large-scale circulation patterns like the Hadley Cell transport heat and moisture globally. The Hadley Cell involves rising air at the equator, poleward flow aloft, and sinking around 30° latitude creating major deserts. The jet streams mark boundaries between air masses and influence mid-latitude weather. Climate change is causing the Hadley Cell to expand poleward and may be weakening the polar jet.",
+    "relevant_doc_ids": ["doc_019"],
+    "topic": "atmospheric_physics"
+  }
+]

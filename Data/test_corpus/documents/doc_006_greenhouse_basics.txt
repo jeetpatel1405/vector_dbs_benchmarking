@@ -1,0 +1,17 @@
+Greenhouse Gases and the Greenhouse Effect
+
+Greenhouse gases are atmospheric components that absorb and emit infrared radiation, playing a crucial role in regulating Earth's temperature. Without the natural greenhouse effect, Earth's average surface temperature would be approximately -18°C instead of the current 15°C, making the planet largely inhospitable to life as we know it.
+
+The greenhouse effect operates through the interaction between solar radiation, Earth's surface, and atmospheric gases. Incoming solar radiation, primarily in the visible wavelength range, passes relatively easily through the atmosphere and warms Earth's surface. The warmed surface then emits infrared radiation back toward space. Greenhouse gases absorb this infrared radiation and re-emit it in all directions, including back toward the surface, effectively trapping heat in the lower atmosphere.
+
+The primary greenhouse gases are water vapor (H2O), carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), and various synthetic compounds including chlorofluorocarbons (CFCs) and hydrofluorocarbons (HFCs). Each gas has different atmospheric concentrations, lifetimes, and abilities to absorb infrared radiation.
+
+Water vapor is the most abundant greenhouse gas and provides the strongest overall greenhouse effect. However, its atmospheric concentration is controlled primarily by temperature rather than direct human emissions, making it a feedback rather than a forcing agent in climate change.
+
+Carbon dioxide, while less abundant than water vapor, is the most important human-influenced greenhouse gas. Atmospheric CO2 concentrations have increased from approximately 280 parts per million (ppm) in pre-industrial times to over 420 ppm today, primarily due to fossil fuel combustion and land use changes. CO2 remains in the atmosphere for centuries, making its climate effects long-lasting.
+
+Methane is a more potent greenhouse gas than CO2 on a per-molecule basis, with a global warming potential about 28-34 times greater over a 100-year period. However, methane has a shorter atmospheric lifetime of about 12 years. Major methane sources include agriculture (particularly rice cultivation and livestock), natural gas production and distribution, and wetlands.
+
+Nitrous oxide has a global warming potential approximately 265 times that of CO2 over 100 years and an atmospheric lifetime of over a century. Agricultural soil management, particularly nitrogen fertilizer use, is the largest human source of N2O emissions.
+
+Understanding the radiative properties and atmospheric behavior of different greenhouse gases is essential for climate policy and mitigation strategies, as different gases require different approaches to emission reduction.

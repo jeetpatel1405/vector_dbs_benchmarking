@@ -1,0 +1,19 @@
+Ocean Circulation and Climate Regulation
+
+Ocean circulation plays a fundamental role in Earth's climate system by transporting heat, nutrients, and carbon around the globe. The ocean's movement is driven by wind, density differences, and Earth's rotation, creating complex current systems that operate on timescales from days to millennia.
+
+Surface ocean currents are primarily wind-driven, forming large circular patterns called gyres in each major ocean basin. The Gulf Stream in the North Atlantic, the Kuroshio Current in the North Pacific, and the Agulhas Current in the Indian Ocean are examples of powerful western boundary currents that transport warm water poleward, moderating climate in adjacent coastal regions.
+
+The thermohaline circulation, also called the global ocean conveyor belt, is driven by density differences created by variations in temperature (thermo) and salinity (haline). Cold, salty water is denser than warm, fresh water. When surface waters cool and become saltier through ice formation or evaporation, they sink, driving a deep circulation that connects all ocean basins.
+
+The Atlantic Meridional Overturning Circulation (AMOC) is a critical component of thermohaline circulation. Warm surface water flows northward in the Atlantic, releases heat to the atmosphere, particularly in the Norwegian and Labrador Seas, and sinks as cold, dense water. This North Atlantic Deep Water then flows southward at depth, eventually reaching the Southern Ocean and other ocean basins.
+
+The AMOC transports approximately 1.5 petawatts (1.5 × 10^15 watts) of heat northward in the Atlantic Ocean, equivalent to roughly 100 times the world's total energy consumption. This heat transport significantly warms northwestern Europe, with countries like Britain and Norway experiencing temperatures 5-10°C warmer than other regions at similar latitudes.
+
+Ocean circulation also governs the distribution of nutrients essential for marine life. Upwelling zones, where deep, nutrient-rich water rises to the surface, support highly productive ecosystems and major fisheries. The Peru-Chile upwelling system and the Benguela upwelling system off southwest Africa are prime examples.
+
+The Southern Ocean plays a unique role in global ocean circulation. The Antarctic Circumpolar Current (ACC), driven by powerful westerly winds, is the largest current on Earth by volume transport. The ACC connects the Atlantic, Pacific, and Indian Oceans, facilitating the global exchange of water masses and nutrients.
+
+El Niño-Southern Oscillation (ENSO) demonstrates ocean-atmosphere interaction and circulation variability. During El Niño events, weakened trade winds allow warm water to accumulate in the eastern Pacific, altering rainfall patterns globally. La Niña events represent the opposite phase, with enhanced upwelling of cold water in the eastern Pacific.
+
+Ocean circulation patterns are changing in response to climate change. The AMOC has shown signs of weakening over the past century, possibly due to increased freshwater input from melting ice sheets and glaciers. Continued weakening could have profound implications for climate, particularly in Europe and North America, and for marine ecosystems globally.

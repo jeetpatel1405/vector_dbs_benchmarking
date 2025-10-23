@@ -1,0 +1,29 @@
+Ocean Acidification and Carbon Chemistry
+
+Ocean acidification, sometimes called "the other CO2 problem," represents a fundamental change in ocean chemistry with profound implications for marine life and ecosystems. This process occurs as the ocean absorbs CO2 from the atmosphere, altering seawater carbonate chemistry.
+
+When CO2 dissolves in seawater, it reacts with water to form carbonic acid (H2CO3), which rapidly dissociates into hydrogen ions (H+) and bicarbonate ions (HCO3-). The increase in hydrogen ions makes the water more acidic, decreasing pH. Since pre-industrial times, ocean surface pH has decreased by approximately 0.1 units, from 8.2 to 8.1, representing a 26% increase in acidity.
+
+The pH scale is logarithmic, meaning each 0.1 unit decrease represents a 26% increase in hydrogen ion concentration. Climate models project that by 2100, under high emission scenarios, ocean pH could decrease by another 0.3-0.4 units, more than tripling the acidity relative to pre-industrial conditions.
+
+Ocean acidification affects the carbonate system, which regulates calcium carbonate (CaCO3) saturation. Many marine organisms, including corals, mollusks, and some plankton, build shells and skeletons from calcium carbonate. As ocean pH decreases, carbonate ion concentrations also decrease, making it harder for these organisms to form and maintain their calcium carbonate structures.
+
+Two main forms of calcium carbonate exist in the ocean: calcite and aragonite. Aragonite is more soluble than calcite and thus more vulnerable to acidification. When conditions become undersaturated with respect to aragonite, existing aragonite structures begin to dissolve. Cold, high-latitude waters are particularly vulnerable to aragonite undersaturation due to CO2's higher solubility in cold water.
+
+Pteropods, small swimming snails that form aragonite shells, are already experiencing impacts in some regions. These organisms form a crucial link in marine food webs, particularly in polar regions. Laboratory studies show pteropod shells dissolving in seawater chemistry projected for the coming decades.
+
+Coral reefs are especially vulnerable to ocean acidification. Reef-building corals require aragonite-saturated conditions for optimal calcification. Acidification slows coral growth rates, making it harder for reefs to recover from damage. Combined with thermal stress causing coral bleaching, acidification poses an existential threat to coral reef ecosystems.
+
+The impacts extend beyond calcifying organisms. Ocean acidification can affect fish behavior and sensory systems. Research has shown that elevated CO2 can impair olfactory abilities in fish, affecting their capacity to detect predators, find food, and locate suitable habitat. These behavioral changes could have cascading effects through marine food webs.
+
+Different ocean regions experience different rates of acidification due to variations in water temperature, circulation patterns, and buffer capacity. The Arctic Ocean is acidifying faster than lower latitudes due to cold water's enhanced CO2 uptake and the input of low-alkalinity freshwater from rivers and ice melt. Coastal waters can experience additional acidification from nutrient pollution and upwelling of already-acidic deep water.
+
+The ocean's buffer capacity, its ability to neutralize acids, is decreasing as acidification proceeds. This makes the ocean increasingly sensitive to additional CO2 uptake. The Revelle factor, which quantifies this sensitivity, increases as more CO2 is absorbed, meaning each additional unit of CO2 causes a larger pH decrease.
+
+Some organisms show remarkable resilience or adaptation potential to acidification. Certain algae and seagrasses may benefit from elevated CO2, which can enhance photosynthesis. Some populations of shell-forming organisms in naturally variable environments show adaptation to low pH conditions, suggesting evolutionary potential for coping with acidification.
+
+Ocean acidification interacts with other stressors including warming, deoxygenation, and pollution. These multiple stressors can have synergistic effects worse than the sum of individual impacts. For example, organisms stressed by warming may be less capable of coping with acidification.
+
+Addressing ocean acidification requires reducing CO2 emissions, as the ocean will continue acidifying as long as atmospheric CO2 concentrations rise. Unlike ocean warming, which will persist for centuries due to thermal inertia, ocean chemistry could recover within centuries if emissions cease, though this is still a very long timescale. Local management approaches, such as reducing nutrient pollution and protecting coastal ecosystems that can locally modify chemistry, may provide some temporary respite.
+
+Monitoring ocean acidification has improved through expanded observations, including time-series stations, research cruises, and autonomous sensors. The Global Ocean Acidification Observing Network coordinates international efforts to track changes in ocean chemistry and biological responses.

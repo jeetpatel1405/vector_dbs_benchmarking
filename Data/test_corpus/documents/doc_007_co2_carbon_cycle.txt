@@ -1,0 +1,17 @@
+The Carbon Cycle and Atmospheric CO2
+
+Carbon dioxide moves through Earth's systems via the carbon cycle, a complex set of processes involving the atmosphere, oceans, land surface, and living organisms. Understanding this cycle is crucial for predicting future climate change and developing effective mitigation strategies.
+
+The natural carbon cycle involves exchanges between major reservoirs. The atmosphere contains about 850 gigatons of carbon (GtC) as CO2. Terrestrial ecosystems hold approximately 2,300 GtC in soil and vegetation. The ocean stores roughly 38,000 GtC, making it the largest active carbon reservoir. Fossil fuel deposits contain about 4,000 GtC that has been sequestered over millions of years.
+
+Before significant human intervention, the carbon cycle operated in approximate balance. Photosynthesis by plants and phytoplankton removed about 120 GtC per year from the atmosphere, while respiration and decomposition returned similar amounts. Oceanic uptake and release of CO2 through physical and biological processes also balanced over time.
+
+Human activities have disrupted this balance primarily through two mechanisms: fossil fuel combustion and land use change. Burning coal, oil, and natural gas releases ancient carbon that had been stored underground, adding about 10 GtC per year to the atmosphere. Deforestation and other land use changes release an additional 1-2 GtC annually.
+
+Not all human-emitted CO2 remains in the atmosphere. Currently, about 45% of emissions stay airborne, while the remainder is absorbed by land and ocean sinks. Terrestrial ecosystems, particularly forests, absorb approximately 30% of emissions through photosynthesis and carbon storage in biomass and soils. The oceans absorb roughly 25% through physical dissolution and biological uptake.
+
+However, these natural sinks may not continue to absorb carbon at current rates. Ocean acidification, resulting from increased CO2 absorption, could reduce the ocean's capacity to take up additional carbon. Terrestrial carbon uptake may also weaken as forests reach maturity and climate change stresses ecosystems.
+
+The ocean's carbon uptake involves both physical and biological processes. CO2 dissolves at the ocean surface, and ocean circulation transports this carbon to deeper waters. The biological carbon pump involves phytoplankton that photosynthesize at the surface; when these organisms die, they sink and transport carbon to the deep ocean.
+
+Climate feedbacks can alter the carbon cycle in ways that amplify warming. As temperatures rise, soil respiration increases, releasing more CO2. Permafrost thaw exposes previously frozen organic matter to decomposition. These positive feedbacks could accelerate atmospheric CO2 accumulation beyond current projections.

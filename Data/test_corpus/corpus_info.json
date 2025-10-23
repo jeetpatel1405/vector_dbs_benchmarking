@@ -1,0 +1,135 @@
+{
+  "name": "Climate Science Test Corpus",
+  "description": "Test corpus for vector database benchmarking focusing on climate science topics",
+  "version": "1.0",
+  "created_date": "2025-10-23",
+  "total_documents": 20,
+  "total_size_bytes": 78405,
+  "document_types": [
+    ".txt"
+  ],
+  "topics": [
+    {
+      "name": "ice_albedo_feedback",
+      "description": "Ice-albedo feedback mechanisms and Arctic climate change",
+      "num_documents": 5
+    },
+    {
+      "name": "greenhouse_gases",
+      "description": "Greenhouse gases, carbon cycle, and radiative forcing",
+      "num_documents": 5
+    },
+    {
+      "name": "ocean_circulation",
+      "description": "Ocean circulation patterns, AMOC, and ocean heat uptake",
+      "num_documents": 5
+    },
+    {
+      "name": "atmospheric_physics",
+      "description": "Atmospheric structure, circulation, and feedbacks",
+      "num_documents": 5
+    }
+  ],
+  "documents": [
+    {
+      "filename": "doc_001_ice_albedo_basic.txt",
+      "size_bytes": 2281,
+      "topic": "ice_albedo_feedback"
+    },
+    {
+      "filename": "doc_002_ice_albedo_arctic.txt",
+      "size_bytes": 2542,
+      "topic": "ice_albedo_feedback"
+    },
+    {
+      "filename": "doc_003_ice_albedo_modeling.txt",
+      "size_bytes": 2740,
+      "topic": "ice_albedo_feedback"
+    },
+    {
+      "filename": "doc_004_ice_albedo_measurement.txt",
+      "size_bytes": 2798,
+      "topic": "ice_albedo_feedback"
+    },
+    {
+      "filename": "doc_005_ice_albedo_impacts.txt",
+      "size_bytes": 2755,
+      "topic": "ice_albedo_feedback"
+    },
+    {
+      "filename": "doc_006_greenhouse_basics.txt",
+      "size_bytes": 2740,
+      "topic": "greenhouse_gases"
+    },
+    {
+      "filename": "doc_007_co2_carbon_cycle.txt",
+      "size_bytes": 2774,
+      "topic": "greenhouse_gases"
+    },
+    {
+      "filename": "doc_008_methane_sources.txt",
+      "size_bytes": 3391,
+      "topic": "greenhouse_gases"
+    },
+    {
+      "filename": "doc_009_radiative_forcing.txt",
+      "size_bytes": 3876,
+      "topic": "greenhouse_gases"
+    },
+    {
+      "filename": "doc_010_ghg_mitigation.txt",
+      "size_bytes": 4600,
+      "topic": "greenhouse_gases"
+    },
+    {
+      "filename": "doc_011_ocean_circulation_basics.txt",
+      "size_bytes": 3226,
+      "topic": "ocean_circulation"
+    },
+    {
+      "filename": "doc_012_amoc_climate.txt",
+      "size_bytes": 4049,
+      "topic": "ocean_circulation"
+    },
+    {
+      "filename": "doc_013_ocean_heat_uptake.txt",
+      "size_bytes": 4297,
+      "topic": "ocean_circulation"
+    },
+    {
+      "filename": "doc_014_upwelling_systems.txt",
+      "size_bytes": 4472,
+      "topic": "ocean_circulation"
+    },
+    {
+      "filename": "doc_015_ocean_acidification.txt",
+      "size_bytes": 5059,
+      "topic": "ocean_circulation"
+    },
+    {
+      "filename": "doc_016_atmospheric_structure.txt",
+      "size_bytes": 4789,
+      "topic": "atmospheric_physics"
+    },
+    {
+      "filename": "doc_017_water_vapor_feedback.txt",
+      "size_bytes": 5343,
+      "topic": "atmospheric_physics"
+    },
+    {
+      "filename": "doc_018_cloud_feedbacks.txt",
+      "size_bytes": 5576,
+      "topic": "atmospheric_physics"
+    },
+    {
+      "filename": "doc_019_atmospheric_circulation.txt",
+      "size_bytes": 5391,
+      "topic": "atmospheric_physics"
+    },
+    {
+      "filename": "doc_020_radiation_balance.txt",
+      "size_bytes": 5706,
+      "topic": "atmospheric_physics"
+    }
+  ]
+}

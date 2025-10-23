@@ -1,0 +1,21 @@
+Methane Sources and Climate Impact
+
+Methane (CH4) is a powerful greenhouse gas that has contributed significantly to observed global warming. Understanding methane's sources, sinks, and atmospheric behavior is essential for climate change mitigation, as reducing methane emissions can provide relatively rapid climate benefits due to its shorter atmospheric lifetime compared to CO2.
+
+Global methane emissions total approximately 570 million tonnes per year, split roughly 60% from human activities and 40% from natural sources. This represents a significant increase from pre-industrial methane levels, with atmospheric concentrations rising from about 700 parts per billion (ppb) to over 1900 ppb today.
+
+Agricultural activities constitute the largest human source of methane emissions. Rice cultivation in flooded paddies creates anaerobic conditions ideal for methane-producing microorganisms, emitting about 30-40 million tonnes annually. Livestock, particularly cattle and sheep, produce methane through enteric fermentation in their digestive systems, contributing roughly 100 million tonnes per year. Manure management adds another 20-30 million tonnes.
+
+The fossil fuel industry is another major methane source. Natural gas extraction, processing, and distribution leak significant amounts of methane. Coal mining releases methane trapped in coal seams. Oil production also results in methane emissions through associated gas flaring and venting. Total fossil fuel-related emissions are estimated at 100-120 million tonnes annually, though recent satellite observations suggest these numbers may be underestimated.
+
+Waste management generates substantial methane emissions. Landfills produce methane as organic waste decomposes in anaerobic conditions, contributing about 40-50 million tonnes per year. Wastewater treatment, particularly in developing countries with open waste lagoons, adds another 20-30 million tonnes.
+
+Natural wetlands are the largest natural methane source, emitting approximately 150-200 million tonnes annually. Wetland emissions vary considerably with temperature, water table depth, and vegetation type. As climate warms, wetland methane emissions may increase, creating a positive feedback.
+
+Other natural sources include termites (20 million tonnes), oceans (10-15 million tonnes), and geological seepage (40-60 million tonnes). Wildfires, which have both natural and human-influenced components, contribute about 5-10 million tonnes annually.
+
+The main methane sink is oxidation by hydroxyl radicals (OH) in the atmosphere, which removes about 90% of emitted methane with an average lifetime of approximately 12 years. Soil uptake by methanotrophic bacteria and loss to the stratosphere account for the remaining 10%.
+
+Methane's shorter lifetime compared to CO2 means that emission reductions can yield relatively rapid climate benefits. Reducing methane emissions by 50% would lower atmospheric concentrations significantly within decades, whereas CO2 reductions take much longer to affect atmospheric levels.
+
+Recent increases in atmospheric methane growth rates have puzzled scientists. Potential explanations include increasing emissions from wetlands and agriculture, decreasing concentrations of atmospheric OH radicals, or changes in fossil fuel emissions. Understanding these trends is crucial for climate projections and mitigation strategies.

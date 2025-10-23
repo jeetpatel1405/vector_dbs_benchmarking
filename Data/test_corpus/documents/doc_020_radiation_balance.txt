@@ -1,0 +1,33 @@
+Earth's Radiation Balance and Energy Budget
+
+Earth's energy balance, the relationship between incoming solar radiation and outgoing terrestrial radiation, determines climate. Understanding this balance is fundamental to climate science and essential for predicting climate change.
+
+Solar radiation provides virtually all of Earth's energy. The sun emits radiation across the electromagnetic spectrum, with peak intensity in visible wavelengths. At the top of Earth's atmosphere, solar irradiance averages about 1361 watts per square meter, a value called the solar constant (though it varies slightly with solar activity and Earth's orbital position).
+
+Accounting for Earth's spherical shape and rotation, the globally averaged incoming solar radiation is approximately 340 W/m² (one-quarter of the solar constant, since the Earth's cross-section is one-fourth of its surface area). Of this incoming radiation, roughly 30% is reflected back to space by clouds, atmospheric particles, and Earth's surface. This reflected fraction is Earth's planetary albedo.
+
+The remaining 70% (about 240 W/m²) is absorbed by Earth's surface and atmosphere, warming the planet. To maintain equilibrium, Earth must emit the same amount of energy back to space as it absorbs. This outgoing energy is in the form of infrared (longwave) radiation, as Earth's temperature is too cool to emit significant visible light.
+
+The greenhouse effect makes Earth's surface warmer than simple energy balance calculations would suggest. If Earth radiated directly to space from its surface with no atmosphere, the surface would need to be about -18°C to emit 240 W/m² of infrared radiation. However, greenhouse gases in the atmosphere absorb much of this surface radiation and re-emit it, both upward to space and downward to the surface. This downward emission warms the surface to its observed average of about 15°C.
+
+The atmospheric window, wavelengths where the atmosphere is relatively transparent, allows some surface radiation to escape directly to space. This window primarily occurs in the 8-12 micrometer wavelength range, between the main absorption bands of water vapor and CO2. Clouds can close this window, which is why clear nights cool more rapidly than cloudy nights.
+
+Energy transport within the climate system helps distribute heat from regions of surplus (tropics) to regions of deficit (poles). The atmosphere and ocean currents together transport about 5 petawatts (5 × 10^15 watts) of energy from the tropics toward the poles. The atmosphere accounts for roughly 75% of this transport, with ocean currents contributing the remaining 25%.
+
+Different surface types absorb and reflect solar radiation differently, described by their albedo. Fresh snow has an albedo of 0.8-0.9 (reflecting 80-90% of sunlight), while forests have albedos of 0.08-0.15, and oceans about 0.06. Changes in surface properties, such as ice melting or vegetation changes, alter how much solar energy is absorbed.
+
+Climate forcing describes anything that changes Earth's energy balance. Positive forcings (like greenhouse gas increases) cause warming by reducing outgoing radiation or increasing absorbed solar radiation. Negative forcings (like volcanic aerosols) cause cooling by increasing reflection or reducing absorbed radiation.
+
+Earth's energy imbalance, the difference between absorbed solar radiation and emitted thermal radiation, indicates whether the climate system is gaining or losing energy. Currently, Earth has a positive energy imbalance of about 0.5-1.0 W/m², meaning more energy is being absorbed than emitted. This energy is primarily going into ocean heat uptake, with smaller amounts warming the land, atmosphere, and melting ice.
+
+Satellites measure Earth's radiation balance using instruments like CERES (Clouds and Earth's Radiant Energy System). These measurements show how clouds, aerosols, and surface changes affect the energy budget. Ground-based radiation measurements complement satellite data and help validate model calculations.
+
+The water and energy cycles are intimately connected. Evaporation requires energy (the latent heat of vaporization), which is released when water vapor condenses to form clouds and precipitation. This latent heat transport is a major component of atmospheric energy transport, particularly in the tropics.
+
+Seasonal variations in solar radiation drive the seasons. Earth's axial tilt causes varying amounts of solar radiation to reach different latitudes through the year. During summer, longer days and more direct sunlight increase absorbed solar radiation. During winter, shorter days and lower sun angles reduce absorbed radiation.
+
+Diurnal (day-night) radiation cycles create temperature variations. During daytime, absorbed solar radiation exceeds outgoing infrared radiation, warming the surface. At night, without incoming solar radiation, the surface cools as it continues emitting infrared radiation. Cloud cover, by reducing both daytime solar absorption and nighttime cooling, moderates these temperature swings.
+
+Climate feedbacks operate through the radiation balance. Ice-albedo feedback affects absorbed solar radiation. Water vapor and cloud feedbacks affect both incoming solar and outgoing infrared radiation. The lapse rate feedback involves changes in atmospheric temperature structure that affect outgoing radiation.
+
+Understanding Earth's radiation balance is crucial for climate models. Models must accurately represent the absorption and emission of radiation by gases, clouds, and aerosols, as well as reflection from various surfaces. Errors in radiation calculations directly affect temperature predictions and climate sensitivity estimates.

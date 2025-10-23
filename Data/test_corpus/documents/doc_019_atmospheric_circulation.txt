@@ -1,0 +1,33 @@
+Atmospheric Circulation Patterns and Climate
+
+Large-scale atmospheric circulation patterns govern weather and climate across the globe, transporting heat, moisture, and momentum from regions of surplus to deficit. Understanding these circulation patterns is essential for weather forecasting and climate prediction.
+
+The Hadley Cell represents the most prominent circulation feature in tropical regions. Warm air rises near the equator in the Intertropical Convergence Zone (ITCZ), flows poleward at upper levels, sinks in the subtropics around 30° latitude, and returns equatorward at the surface as trade winds. This circulation transports enormous amounts of heat and moisture from the tropics toward mid-latitudes.
+
+The Hadley Cell's descending branch creates the world's major deserts. As air sinks in the subtropics, it warms and dries, suppressing cloud formation and precipitation. The Sahara, Arabian, Australian, and southwestern North American deserts all occur in regions of persistent descent associated with the Hadley Cell.
+
+The Ferrel Cell operates in mid-latitudes between roughly 30° and 60° latitude. Unlike the thermally direct Hadley Cell, the Ferrel Cell is eddy-driven, maintained by heat and momentum transport from weather systems. Surface winds in the Ferrel Cell flow poleward (the prevailing westerlies), opposite to what would occur in a thermally direct cell.
+
+The Polar Cell involves cold, dense air sinking over the poles, flowing equatorward at the surface (polar easterlies), and rising around 60° latitude where it meets warmer mid-latitude air. This cell is weaker and more variable than the Hadley Cell, particularly in the Northern Hemisphere where land-sea contrasts disrupt the circulation.
+
+The jet streams are fast-flowing, narrow air currents in the upper troposphere and lower stratosphere. The subtropical jet forms at the poleward edge of the Hadley Cell around 30° latitude. The polar jet meanders through mid-latitudes near 60° latitude, marking the boundary between cold polar air and warm subtropical air. These jets can reach speeds of 200-300 km/h.
+
+The polar jet's position and strength critically influence mid-latitude weather. A stronger, more zonal (west-to-east) jet generally brings milder, wetter weather to regions in its path. A weaker, more meridional (wavy) jet can create persistent weather patterns, including extended heat waves, droughts, or cold spells.
+
+Monsoons represent seasonal reversals in atmospheric circulation driven by land-sea temperature contrasts. The most prominent is the Asian monsoon, where intense summer heating over the continent creates low pressure that draws moist ocean air inland, bringing heavy rainfall. In winter, the pattern reverses, with high pressure over the cold continent producing dry conditions.
+
+The Walker Circulation operates in the tropical Pacific, with rising air over the warm western Pacific, upper-level flow eastward, sinking over the cooler eastern Pacific, and return flow at the surface (the trade winds). During El Niño, this circulation weakens or reverses, with profound global climate impacts.
+
+Climate change is affecting atmospheric circulation in several ways. The Hadley Cell appears to be expanding poleward, pushing subtropical dry zones into higher latitudes. This expansion may be contributing to observed precipitation decreases in regions like the Mediterranean, southwestern Australia, and southern Africa.
+
+The polar jet stream may be weakening and becoming more wavy due to Arctic amplification reducing the temperature gradient between polar and mid-latitude regions. Some research suggests this is increasing the persistence of weather patterns, though this remains debated. Extreme weather events, including prolonged heat waves and cold spells, may be becoming more frequent partly due to jet stream changes.
+
+Tropical circulation is also changing. The Walker Circulation has strengthened in recent decades, though models generally project weakening under continued warming. The ITCZ may be shifting in response to asymmetric warming between hemispheres and changes in ocean heat uptake patterns.
+
+Atmospheric blocks, persistent high-pressure systems that divert the jet stream and lock weather patterns in place, may be changing in frequency and duration. These blocks can cause extreme events by maintaining anomalous temperature and precipitation patterns for weeks.
+
+The Northern and Southern Annular Modes (NAM and SAM) describe large-scale circulation patterns in the extratropics. The SAM has shown a trend toward its positive phase, partly driven by ozone depletion and greenhouse gas increases, with implications for southern hemisphere mid-latitude climate and Antarctic ice.
+
+Storm tracks, the regions where mid-latitude cyclones frequently occur, are shifting poleward in both hemispheres. This shift affects precipitation patterns, with regions on the poleward side of storm tracks receiving more precipitation and equatorward regions becoming drier.
+
+Understanding and predicting circulation changes represents one of the most important challenges in climate science. These changes affect not just temperature but also precipitation, extreme weather, air quality, and numerous aspects of ecosystems and human systems. Improved model representation of atmospheric circulation is crucial for reliable regional climate projections.

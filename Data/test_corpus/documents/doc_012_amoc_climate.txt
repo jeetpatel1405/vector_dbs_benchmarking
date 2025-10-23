@@ -1,0 +1,23 @@
+The Atlantic Meridional Overturning Circulation and Climate
+
+The Atlantic Meridional Overturning Circulation (AMOC) represents one of Earth's most important climate features, redistributing heat and influencing weather patterns across the Northern Hemisphere and beyond. Understanding AMOC dynamics is crucial for predicting future climate changes and their regional impacts.
+
+The AMOC operates through a combination of surface and deep currents that form a vast conveyor belt. Warm surface water flows northward through the Atlantic, driven partly by winds and partly by the circulation's own density-driven dynamics. As this water moves northward, it gradually cools through contact with the atmosphere, losing heat particularly in the Norwegian and Labrador Seas.
+
+In the subpolar North Atlantic, the cooled surface water becomes denser through both cooling and increased salinity from evaporation. When density reaches a critical threshold, the water sinks in a process called deep convection, forming North Atlantic Deep Water (NADW). This sinking water mass then flows southward at depths of 1-4 kilometers, eventually reaching the Southern Ocean.
+
+The AMOC's strength is typically measured at 26°N, where the RAPID-MOCHA array has continuously monitored the circulation since 2004. Average AMOC strength is approximately 17 Sverdrups (1 Sverdrup = 10^6 cubic meters per second), though it varies significantly on timescales from days to decades.
+
+Climate models consistently project AMOC weakening under future warming scenarios. Multiple factors contribute to this weakening: increased precipitation and river runoff at high latitudes reduce ocean surface salinity; melting of the Greenland ice sheet adds freshwater to the North Atlantic; and ocean warming reduces water density. These changes make surface waters more buoyant, inhibiting the deep convection that drives the AMOC.
+
+Observational evidence suggests the AMOC may already be weakening. Paleoclimate reconstructions indicate the current AMOC strength is at its weakest point in over 1,000 years. The RAPID array shows a declining trend, though the observational record is too short to definitively separate climate change signals from natural variability.
+
+An AMOC slowdown would have far-reaching consequences. Northwestern Europe could experience reduced warming or even relative cooling compared to global trends, as less heat is transported northward. North Atlantic fisheries would be affected by changes in nutrient distribution and water properties. Sea level would rise along the U.S. East Coast due to altered ocean circulation patterns.
+
+The AMOC also influences the carbon cycle. Deep water formation transfers carbon absorbed by the surface ocean to the deep ocean, effectively removing it from the atmosphere for centuries. Weakened deep water formation could reduce this carbon sequestration, creating a positive climate feedback.
+
+Some paleoclimate evidence suggests the AMOC can undergo rapid transitions between strong and weak states, or even shut down entirely. During the Younger Dryas period (12,900-11,700 years ago), a massive influx of freshwater from melting glaciers apparently caused AMOC collapse, triggering severe cooling across the Northern Hemisphere. Whether such abrupt changes could occur under current warming is debated.
+
+Recent research has focused on identifying early warning signals for potential AMOC collapse. Statistical analyses suggest the AMOC may be approaching a tipping point, though uncertainties remain large. The possibility of abrupt AMOC change represents one of the identified climate tipping points that could lead to catastrophic impacts.
+
+Monitoring the AMOC remains challenging due to the vast spatial scales involved and the need for continuous observations in harsh marine environments. The RAPID array at 26°N provides invaluable data, but scientists are working to expand observations to other latitudes and develop new monitoring techniques, including satellite measurements and autonomous underwater vehicles.

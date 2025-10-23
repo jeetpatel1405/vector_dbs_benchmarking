@@ -1,0 +1,27 @@
+Atmospheric Structure and Layers
+
+Earth's atmosphere exhibits a distinct vertical structure characterized by temperature variations that define several layers, each with unique physical properties and roles in climate and weather systems.
+
+The troposphere is the lowest atmospheric layer, extending from the surface to approximately 10-15 kilometers altitude (higher at the equator, lower at the poles). Temperature generally decreases with height in the troposphere at an average rate of 6.5°C per kilometer, called the environmental lapse rate. The troposphere contains about 80% of the atmosphere's mass and virtually all water vapor, making it the location of weather phenomena including clouds, precipitation, and storms.
+
+The boundary between the troposphere and the layer above, called the tropopause, represents a temperature minimum and a demarcation in atmospheric behavior. The tropopause acts as a lid on vertical motion, generally confining weather to the troposphere. Its height varies with latitude and season, reaching approximately 16-18 km at the equator but only 8-10 km at the poles.
+
+Above the tropopause lies the stratosphere, extending to about 50 km altitude. Unlike the troposphere, temperature increases with height in the stratosphere due to ozone absorption of ultraviolet radiation. This temperature inversion creates stable conditions that resist vertical mixing, which is why aircraft often cruise in the lower stratosphere to avoid turbulence.
+
+The ozone layer, concentrated between 15-35 km altitude, plays a critical role in protecting life from harmful UV radiation. Ozone (O3) forms when UV radiation splits oxygen molecules (O2), allowing atomic oxygen to combine with other O2 molecules. The same UV radiation that creates ozone is absorbed in the process, heating the stratosphere and creating its characteristic temperature profile.
+
+The mesosphere extends from the stratopause (around 50 km) to approximately 85 km. Temperature again decreases with height in this layer, reaching the coldest temperatures in Earth's atmosphere (as low as -90°C) at the mesopause. The mesosphere is too high for aircraft and too low for satellites, making it the least explored atmospheric region. Meteors burn up in the mesosphere due to friction with air molecules.
+
+The thermosphere begins at the mesopause and extends to several hundred kilometers. Temperature increases dramatically with height due to absorption of energetic solar radiation, reaching 1,500°C or higher during periods of high solar activity. Despite these high temperatures, the thermosphere would not feel hot because air density is so low that molecules rarely collide with objects.
+
+The exosphere represents the outermost layer where atmospheric particles can escape to space. Individual molecules can travel hundreds of kilometers without colliding with other molecules. The transition between atmosphere and outer space is gradual rather than abrupt.
+
+Within the thermosphere and extending into the exosphere lies the ionosphere, defined by the presence of charged particles (ions and free electrons) created by solar radiation. The ionosphere enables long-distance radio communication by reflecting radio waves. Aurora borealis and aurora australis (northern and southern lights) occur in the ionosphere when charged particles from the solar wind interact with atmospheric gases.
+
+Atmospheric pressure decreases exponentially with height. At sea level, pressure averages 1013 millibars (or hectopascals), but drops to about 500 mb at 5.5 km altitude. At the cruising altitude of commercial aircraft (about 10-12 km), pressure is only 20-25% of sea-level values, necessitating pressurized cabins.
+
+Atmospheric composition varies with altitude. In the troposphere and lower stratosphere, the major components (nitrogen, oxygen, argon) maintain relatively constant proportions due to turbulent mixing. Higher in the atmosphere, molecular diffusion becomes important, leading to gravitational separation where lighter gases become proportionally more abundant.
+
+Understanding atmospheric structure is essential for weather prediction, climate modeling, and aviation. The stratosphere's temperature structure influences tropospheric weather patterns. Sudden stratospheric warmings, where polar stratospheric temperatures rapidly increase, can affect the polar vortex and lead to extreme cold air outbreaks at mid-latitudes.
+
+Climate change is altering atmospheric structure. The troposphere is warming while the stratosphere is cooling, a pattern consistent with greenhouse gas increases. The tropopause is rising, and the boundary between atmospheric layers is shifting. These structural changes have implications for atmospheric circulation, the ozone layer, and severe weather patterns.

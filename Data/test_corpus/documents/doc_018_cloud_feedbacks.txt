@@ -1,0 +1,35 @@
+Cloud Feedbacks and Climate Sensitivity
+
+Clouds represent one of the largest uncertainties in climate projections due to their complex effects on both solar and infrared radiation. Cloud feedbacks can either amplify or dampen climate change, and understanding these feedbacks remains a central challenge in climate science.
+
+Clouds affect Earth's energy balance through two competing effects. High, bright clouds reflect solar radiation back to space (cooling effect), reducing the amount of energy absorbed by the Earth system. Simultaneously, clouds absorb and emit infrared radiation, trapping heat (warming effect). The net impact depends on cloud properties including altitude, thickness, and droplet size.
+
+Low, thick clouds like stratocumulus predominantly cool the surface. These clouds are highly reflective (high albedo) and don't extend to very cold altitudes, so their greenhouse effect is relatively weak. They reflect much more solar energy than they trap as infrared radiation, producing net cooling.
+
+High, thin clouds like cirrus can warm the surface. These clouds have limited reflectivity but trap significant infrared radiation because they're cold and located high in the atmosphere. The infrared trapping effect dominates over their solar reflection, producing net warming.
+
+Cloud feedback refers to how cloud properties change as climate warms, and whether these changes amplify or moderate the warming. If warming reduces cloud cover or makes clouds less reflective, that's a positive feedback. If warming increases cloud cover or reflectivity, that's a negative feedback.
+
+Low cloud feedback is particularly important and uncertain. Marine stratocumulus clouds cover vast areas of subtropical ocean. Climate models disagree on whether these clouds will increase, decrease, or remain stable as climate warms. Some models show these clouds thinning or breaking up at high CO2 concentrations, creating a strong positive feedback. Other models show more resilient clouds.
+
+High cloud feedback also matters for climate sensitivity. Some evidence suggests the tops of high clouds rise as climate warms, making them colder and more effective at trapping infrared radiation. This represents a positive feedback. The extent of this effect varies among models.
+
+Cloud lifetime and microphysical properties change with warming, affecting cloud feedback. Warmer air can hold more water vapor, potentially allowing clouds to persist longer or become thicker. However, enhanced precipitation efficiency might shorten cloud lifetime. Changes in aerosol concentrations add another layer of complexity.
+
+Observations of cloud feedback are challenging because natural cloud variability is large, making it difficult to detect climate change signals. Satellite observations show declining low cloud cover in some regions, consistent with positive feedback, but whether these trends represent long-term climate responses or natural variability remains debated.
+
+Recent research using multiple lines of evidence suggests cloud feedback is likely positive, amplifying warming. Studies combining satellite observations, paleoclimate data, and model evaluation point toward positive feedback from both low clouds and rising high cloud tops. However, uncertainties remain significant.
+
+Climate sensitivity estimates depend heavily on cloud feedback assumptions. Models with strongly positive cloud feedback project warming of 4-5°C for doubled CO2, while models with neutral cloud feedback project 2-3°C. Narrowing this range requires better understanding of cloud processes and better observational constraints.
+
+The Cloud Feedback Model Intercomparison Project (CFMIP) coordinates efforts to understand and evaluate cloud feedbacks in climate models. This project has identified key processes and regions where observations are most needed to constrain cloud feedback uncertainty.
+
+Recent model developments have increased resolution to better represent cloud processes. Cloud-resolving models can explicitly simulate individual clouds rather than parameterizing their effects. These high-resolution models generally support positive cloud feedback, though computational limitations prevent their use for long climate simulations.
+
+Emergent constraints, relationships between observable current climate properties and future cloud changes, offer promising approaches to narrowing cloud feedback uncertainty. For example, researchers have found that models better simulating current low cloud properties tend to show stronger positive cloud feedback.
+
+Specific cloud regimes show different feedback behaviors. Subtropical stratocumulus regions show strong positive feedback in many models. Mid-latitude storm track clouds show more modest feedback. Tropical convective clouds play complex roles involving both cloud radiative effects and atmospheric circulation changes.
+
+The 2020s have seen growing evidence that cloud feedback is more positive than previously thought, with implications for climate sensitivity. Several independent lines of evidence, including improved satellite observations and better model evaluation, point toward the higher end of the previously estimated range.
+
+Understanding cloud feedback matters not just for global temperature projections but also for regional climate changes, precipitation patterns, and extreme weather. Cloud changes affect surface solar radiation, important for solar energy, agriculture, and ecosystems. Improved understanding of cloud feedback is crucial for refining climate projections and planning for future change.
