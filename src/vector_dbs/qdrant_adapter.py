@@ -128,8 +128,16 @@ class QdrantRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query Qdrant for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query Qdrant for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         start_time = time.time()
 
         results = self.client.search(
@@ -140,10 +148,11 @@ class QdrantRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract IDs
+        # Extract IDs and similarity scores
         result_ids = [hit.id for hit in results]
+        similarity_scores = [hit.score for hit in results]
 
-        return result_ids, query_time
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up Qdrant resources."""
