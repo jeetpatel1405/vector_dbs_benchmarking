@@ -240,14 +240,16 @@ Port: 8000
 ```
 
 **API Endpoints:**
-- Heartbeat: http://localhost:8000/api/v1/heartbeat
+- Heartbeat: http://localhost:8000/api/v2/heartbeat
 - Version: http://localhost:8000/api/v1/version
 - Collections: http://localhost:8000/api/v1/collections
 
 **Test:**
 ```bash
-curl http://localhost:8000/api/v1/heartbeat
+curl http://localhost:8000/api/v2/heartbeat
 ```
+
+**Note:** Chroma v1 API is deprecated, use v2 endpoints where available.
 
 **Notes:**
 - Can also run in embedded mode (no Docker required)
