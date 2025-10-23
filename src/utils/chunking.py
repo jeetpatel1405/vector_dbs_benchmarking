@@ -65,10 +65,18 @@ class FixedSizeChunking(ChunkingStrategy):
         start = 0
         chunk_num = 0
 
+        # Minimum chunk size to avoid tiny final chunks (typically overlap size or 10% of chunk_size)
+        min_chunk_size = max(self.chunk_overlap, self.chunk_size // 10)
+
         while start < text_length:
             end = min(start + self.chunk_size, text_length)
-            chunk_text = text[start:end]
+            chunk_length = end - start
 
+            # Skip very small final chunks - merge with previous chunk instead
+            if chunk_length < min_chunk_size and len(chunks) > 0:
+                break
+
+            chunk_text = text[start:end]
             chunk_id = f"{doc_id}_chunk_{chunk_num}" if doc_id else f"chunk_{chunk_num}"
 
             chunk = Chunk(
@@ -89,7 +97,7 @@ class FixedSizeChunking(ChunkingStrategy):
             chunk_num += 1
 
             # Move start position, accounting for overlap
-            start = end - self.chunk_overlap if self.chunk_overlap > 0 else end
+            start = start + self.chunk_size - self.chunk_overlap
 
         return chunks
 
