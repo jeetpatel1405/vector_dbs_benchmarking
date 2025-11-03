@@ -112,10 +112,12 @@ def main():
         dimension=384  # MiniLM dimension
     )
 
-    # 4. Initialize Qdrant benchmark
-    print("\n[4/7] Initializing Pgvector...")
+    # 4. Initialize pgvector benchmark
+    print("\n[4/7] Initializing pgvector...")
     print(f"Host: {CONFIG['pgvector_config']['host']}:{CONFIG['pgvector_config']['port']}")
-    print(f"Collection: {CONFIG['pgvector_config']['collection_name']}")
+    print(f"Database: {CONFIG['pgvector_config']['database']}")
+    print(f"Table: {CONFIG['pgvector_config']['table_name']}")
+    print(f"Database: {CONFIG['pgvector_config']['database']}")
 
     benchmark = PgvectorRAGBenchmark(
         db_config=CONFIG['pgvector_config'],
@@ -125,7 +127,7 @@ def main():
         chunk_strategy=CONFIG['chunk_strategy']
     )
 
-    # Connect to Qdrant
+    # Connect to pgvector
     try:
         benchmark.connect()
     except Exception as e:
@@ -137,10 +139,10 @@ def main():
         return 1
 
     # 5. Create collection
-    print(f"\n[5/8] Creating Qdrant collection...")
+    print(f"\n[5/8] Creating pgvector table...")
     try:
         benchmark.create_collection(embedding_gen.dimension)
-        print(f"✅ Collection '{CONFIG['pgvector_config']['collection_name']}' created")
+        print(f"✅ Table created")
     except Exception as e:
         print(f"❌ Collection creation failed: {e}")
         benchmark.disconnect()
@@ -251,7 +253,7 @@ def main():
     benchmark.disconnect()
 
     if not results:
-        print("\n❌ No successful queries! Check Qdrant connection and data.")
+        print("\n❌ No successful queries! Check pgvector connection and data.")
         return 1
 
     # 8. Export results and generate plots
@@ -276,7 +278,7 @@ def main():
     results_file = output_dir / 'results.json'
     with open(results_file, 'w') as f:
         json.dump(results_data, f, indent=2)
-    print(f"✅ Results saved to: {results_file}")
+        print(f"✅ Results saved to: {results_file}")
 
     # Generate performance and quality plots
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -342,7 +344,7 @@ def main():
     plt.tight_layout()
     plot_file = output_dir / 'performance_quality.png'
     plt.savefig(plot_file, dpi=300, bbox_inches='tight')
-    print(f"✅ Performance & quality plot saved to: {plot_file}")
+        print(f"✅ Performance & quality plot saved to: {plot_file}")
 
     # Print summary
     print("\n" + "="*70)

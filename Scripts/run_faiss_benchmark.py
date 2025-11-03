@@ -108,10 +108,10 @@ def main():
         dimension=384  # MiniLM dimension
     )
 
-    # 4. Initialize Qdrant benchmark
-    print("\n[4/7] Initializing Qdrant...")
-    print(f"Host: {CONFIG['faiss_config']['host']}:{CONFIG['faiss_config']['port']}")
-    print(f"Collection: {CONFIG['faiss_config']['collection_name']}")
+    # 4. Initialize FAISS benchmark
+    print("\n[4/7] Initializing FAISS...")
+    print(f"Index path: {CONFIG['faiss_config']['index_path']}")
+    print(f"Index type: {CONFIG['faiss_config']['index_type']}")
 
     benchmark = FAISSRAGBenchmark(
         db_config=CONFIG['faiss_config'],
@@ -121,22 +121,18 @@ def main():
         chunk_strategy=CONFIG['chunk_strategy']
     )
 
-    # Connect to Qdrant
+    # Initialize FAISS (in-memory, no connection needed)
     try:
         benchmark.connect()
     except Exception as e:
-        print(f"\n❌ Failed to connect to Qdrant: {e}")
-        print("\nMake sure Qdrant is running:")
-        print("  docker-compose up -d qdrant")
-        print("or:")
-        print("  docker run -p 6333:6333 qdrant/qdrant")
+        print(f"\n❌ Failed to initialize FAISS: {e}")
         return 1
 
     # 5. Create collection
-    print(f"\n[5/8] Creating Qdrant collection...")
+    print(f"\n[5/8] Creating FAISS index...")
     try:
         benchmark.create_collection(embedding_gen.dimension)
-        print(f"✅ Collection '{CONFIG['faiss_config']['collection_name']}' created")
+        print(f"✅ FAISS index created")
     except Exception as e:
         print(f"❌ Collection creation failed: {e}")
         benchmark.disconnect()
