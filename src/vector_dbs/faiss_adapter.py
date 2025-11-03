@@ -137,10 +137,11 @@ class FAISSRAGBenchmark(RAGBenchmark):
             if idx != -1 and idx in self.metadata_store:  # -1 means not found
                 chunk_num = self.metadata_store[idx]['chunk_num']
                 result_ids.append(chunk_num)
-                # FAISS with L2 distance: convert to similarity (1 / (1 + distance))
-                # For cosine similarity index, distances are already similarity scores
-                # Assuming cosine here (IP with normalized vectors)
-                similarity_scores.append(float(dist))
+                # FAISS with L2 distance: convert to similarity score (0-1 range)
+                # Lower distance = higher similarity
+                # Using formula: similarity = 1 / (1 + distance)
+                similarity = 1.0 / (1.0 + float(dist))
+                similarity_scores.append(similarity)
 
         return result_ids, query_time, similarity_scores
 
