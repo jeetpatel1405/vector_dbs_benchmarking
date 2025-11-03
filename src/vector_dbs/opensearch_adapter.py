@@ -144,8 +144,16 @@ class OpenSearchRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query OpenSearch for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query OpenSearch for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         start_time = time.time()
 
         query_body = {
@@ -164,13 +172,21 @@ class OpenSearchRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers from results
+        # Extract chunk numbers and scores from results
         result_ids = []
+        similarity_scores = []
+
         for hit in response['hits']['hits']:
             chunk_num = hit['_source'].get('chunk_num', 0)
             result_ids.append(chunk_num)
 
-        return result_ids, query_time
+            # OpenSearch returns a score (higher is better)
+            # Normalize to [0, 1] range - scores are typically in [0, 2] for cosine
+            score = hit.get('_score', 0.0)
+            normalized_score = min(score / 2.0, 1.0)  # Normalize assuming max score ~2
+            similarity_scores.append(float(normalized_score))
+
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up OpenSearch resources."""

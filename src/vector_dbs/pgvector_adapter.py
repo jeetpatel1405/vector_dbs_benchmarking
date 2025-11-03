@@ -178,8 +178,16 @@ class PgvectorRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query PostgreSQL for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query PostgreSQL for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         # Set probes for IVFFlat
         if self.index_type == 'ivfflat':
             probes = self.db_config.get('probes', 10)
@@ -188,18 +196,23 @@ class PgvectorRAGBenchmark(RAGBenchmark):
         start_time = time.time()
 
         # Query using cosine distance (cast array to vector type)
+        # Return both chunk_num and distance
         self.cursor.execute(f"""
-            SELECT chunk_num FROM {self.table_name}
-            ORDER BY embedding <=> %s::vector
+            SELECT chunk_num, embedding <=> %s::vector as distance
+            FROM {self.table_name}
+            ORDER BY distance
             LIMIT %s
         """, (query_embedding.tolist(), top_k))
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers
-        result_ids = [row[0] for row in self.cursor.fetchall()]
+        # Extract chunk numbers and convert distances to similarities
+        results = self.cursor.fetchall()
+        result_ids = [row[0] for row in results]
+        # Cosine distance: convert to similarity (1 - distance)
+        similarity_scores = [float(1.0 - row[1]) for row in results]
 
-        return result_ids, query_time
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up PostgreSQL resources."""

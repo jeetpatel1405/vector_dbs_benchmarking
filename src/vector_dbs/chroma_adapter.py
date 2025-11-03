@@ -108,8 +108,16 @@ class ChromaRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query Chroma for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query Chroma for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         start_time = time.time()
 
         results = self.collection.query(
@@ -119,14 +127,23 @@ class ChromaRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers from metadata
+        # Extract chunk numbers from metadata and similarity scores
         result_ids = []
+        similarity_scores = []
+
         if results and 'metadatas' in results and len(results['metadatas']) > 0:
             for metadata in results['metadatas'][0]:
                 chunk_num = metadata.get('chunk_num', 0)
                 result_ids.append(chunk_num)
 
-        return result_ids, query_time
+            # Chroma returns distances (lower is better for cosine)
+            # Convert to similarity: similarity = 1 - distance for cosine
+            if 'distances' in results and len(results['distances']) > 0:
+                similarity_scores = [1.0 - d for d in results['distances'][0]]
+            else:
+                similarity_scores = [0.0] * len(result_ids)
+
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up Chroma resources."""

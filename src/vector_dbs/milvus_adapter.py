@@ -155,8 +155,16 @@ class MilvusRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query Milvus for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query Milvus for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         start_time = time.time()
 
         # Set search params based on index type
@@ -183,15 +191,20 @@ class MilvusRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers from results
+        # Extract chunk numbers and similarity scores from results
         result_ids = []
+        similarity_scores = []
+
         if results and len(results) > 0:
             for hit in results[0]:
                 chunk_num = hit.entity.get('chunk_num')
                 if chunk_num is not None:
                     result_ids.append(chunk_num)
+                    # Milvus returns similarity scores for COSINE metric
+                    # Score is already in [0, 1] range where higher is better
+                    similarity_scores.append(float(hit.distance))
 
-        return result_ids, query_time
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up Milvus resources."""

@@ -155,8 +155,16 @@ class WeaviateRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query Weaviate for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query Weaviate for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         start_time = time.time()
 
         collection = self.client.collections.get(self.class_name)
@@ -169,14 +177,22 @@ class WeaviateRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers from results
-        # Since Weaviate uses UUIDs, we need to use chunk_num from properties
+        # Extract chunk numbers and similarity scores from results
         result_ids = []
+        similarity_scores = []
+
         for obj in response.objects:
             chunk_num = obj.properties.get('chunk_num', 0)
             result_ids.append(chunk_num)
 
-        return result_ids, query_time
+            # Weaviate returns distance (lower is better)
+            # Convert to similarity: similarity = 1 - distance
+            if obj.metadata and obj.metadata.distance is not None:
+                similarity_scores.append(float(1.0 - obj.metadata.distance))
+            else:
+                similarity_scores.append(0.0)
+
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up Weaviate resources."""

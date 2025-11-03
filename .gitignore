@@ -65,6 +65,16 @@ faiss_index/
 *.index
 *.pkl
 
+# Test/Development Database Directories
+test_*/
+test_chroma/
+test_faiss/
+test_pgvector/
+test_weaviate/
+test_milvus/
+test_opensearch/
+*.sqlite3
+
 # Results and Outputs
 results/
 plots/*.png

@@ -104,8 +104,16 @@ class FAISSRAGBenchmark(RAGBenchmark):
         self,
         query_embedding: np.ndarray,
         top_k: int = 10
-    ) -> Tuple[List[int], float]:
-        """Query FAISS for similar chunks."""
+    ) -> Tuple[List[int], float, List[float]]:
+        """
+        Query FAISS for similar chunks.
+
+        Returns:
+            Tuple of (result_ids, query_time, similarity_scores)
+            - result_ids: List of chunk IDs
+            - query_time: Time taken for query in seconds
+            - similarity_scores: Cosine similarity scores for each result (0-1)
+        """
         import faiss
 
         # Set nprobe for IVF (number of clusters to search)
@@ -121,14 +129,20 @@ class FAISSRAGBenchmark(RAGBenchmark):
 
         query_time = time.time() - start_time
 
-        # Extract chunk numbers from metadata
+        # Extract chunk numbers from metadata and convert distances to similarities
         result_ids = []
-        for idx in indices[0]:
+        similarity_scores = []
+
+        for idx, dist in zip(indices[0], distances[0]):
             if idx != -1 and idx in self.metadata_store:  # -1 means not found
                 chunk_num = self.metadata_store[idx]['chunk_num']
                 result_ids.append(chunk_num)
+                # FAISS with L2 distance: convert to similarity (1 / (1 + distance))
+                # For cosine similarity index, distances are already similarity scores
+                # Assuming cosine here (IP with normalized vectors)
+                similarity_scores.append(float(dist))
 
-        return result_ids, query_time
+        return result_ids, query_time, similarity_scores
 
     def cleanup(self) -> None:
         """Clean up FAISS resources."""
