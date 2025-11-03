@@ -180,11 +180,16 @@ class OpenSearchRAGBenchmark(RAGBenchmark):
             chunk_num = hit['_source'].get('chunk_num', 0)
             result_ids.append(chunk_num)
 
-            # OpenSearch returns a score (higher is better)
-            # Normalize to [0, 1] range - scores are typically in [0, 2] for cosine
+            # OpenSearch with cosinesimil returns: _score = 1 / (2 - cosine_similarity)
+            # Convert back to cosine similarity: cosine_similarity = 2 - (1 / _score)
             score = hit.get('_score', 0.0)
-            normalized_score = min(score / 2.0, 1.0)  # Normalize assuming max score ~2
-            similarity_scores.append(float(normalized_score))
+            if score > 0:
+                cosine_similarity = 2.0 - (1.0 / score)
+                # Clamp to [0, 1] range (should already be in range, but safety check)
+                cosine_similarity = max(0.0, min(1.0, cosine_similarity))
+            else:
+                cosine_similarity = 0.0
+            similarity_scores.append(float(cosine_similarity))
 
         return result_ids, query_time, similarity_scores
 
