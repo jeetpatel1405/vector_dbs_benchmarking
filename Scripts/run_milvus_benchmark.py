@@ -109,7 +109,7 @@ def main():
         dimension=384  # MiniLM dimension
     )
 
-    # 4. Initialize Milvus benchmark
+    # 4. Initialize Qdrant benchmark
     print("\n[4/7] Initializing Milvus...")
     print(f"Host: {CONFIG['milvus_config']['host']}:{CONFIG['milvus_config']['port']}")
     print(f"Collection: {CONFIG['milvus_config']['collection_name']}")
@@ -122,7 +122,7 @@ def main():
         chunk_strategy=CONFIG['chunk_strategy']
     )
 
-    # Connect to Milvus
+    # Connect to Qdrant
     try:
         benchmark.connect()
     except Exception as e:
@@ -134,7 +134,7 @@ def main():
         return 1
 
     # 5. Create collection
-    print(f"\n[5/8] Creating Milvus collection...")
+    print(f"\n[5/8] Creating Qdrant collection...")
     try:
         benchmark.create_collection(embedding_gen.dimension)
         print(f"✅ Collection '{CONFIG['milvus_config']['collection_name']}' created")
@@ -273,7 +273,7 @@ def main():
     results_file = output_dir / 'results.json'
     with open(results_file, 'w') as f:
         json.dump(results_data, f, indent=2)
-        print(f"✅ Results saved to: {results_file}")
+    print(f"✅ Results saved to: {results_file}")
 
     # Generate performance and quality plots
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -339,7 +339,7 @@ def main():
     plt.tight_layout()
     plot_file = output_dir / 'performance_quality.png'
     plt.savefig(plot_file, dpi=300, bbox_inches='tight')
-        print(f"✅ Performance & quality plot saved to: {plot_file}")
+    print(f"✅ Performance & quality plot saved to: {plot_file}")
 
     # Print summary
     print("\n" + "="*70)
