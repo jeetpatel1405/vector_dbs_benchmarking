@@ -30,7 +30,7 @@ CONFIG = {
     'output_dir': 'results/pgvector_ingestion_experiment_001',
     'pgvector_config': {
         'host': 'localhost',
-        'port': 5432,
+        'port': 5433,
         'database': 'vectordb',
         'user': 'postgres',
         'password': 'postgres',
