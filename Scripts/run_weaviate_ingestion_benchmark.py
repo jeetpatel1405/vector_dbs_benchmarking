@@ -20,7 +20,7 @@ import pandas as pd
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from src.vector_dbs.weaviate_adapter import Weaviate RAGBenchmark
+from src.vector_dbs.weaviate_adapter import WeaviateRAGBenchmark
 from src.embeddings.embedding_generator import get_embedding_generator
 from src.parsers.document_parser import DocumentParser, Document
 
@@ -30,7 +30,7 @@ CONFIG = {
     'output_dir': 'results/weaviate_ingestion_experiment_001',
     'weaviate_config': {
         'host': 'localhost',
-        'port': 8080,
+        'port': 8082,
         'class_name': 'IngestionBenchmark'
     },
     'embedding_model': 'sentence-transformers/all-MiniLM-L6-v2',
@@ -68,7 +68,7 @@ def load_documents(corpus_path: str, max_docs: int = None) -> List[Document]:
 
 
 def run_ingestion_experiment(
-    benchmark: Weaviate RAGBenchmark,
+    benchmark: WeaviateRAGBenchmark,
     documents: List[Document],
     chunk_size: int,
     batch_size: int,
@@ -141,7 +141,7 @@ def main():
 
     # Initialize Qdrant
     print("\n[4/6] Connecting to Qdrant...")
-    benchmark = Weaviate RAGBenchmark(
+    benchmark = WeaviateRAGBenchmark(
         db_config=CONFIG['weaviate_config'],
         embedding_generator=embedding_gen,
         chunk_size=CONFIG['chunk_sizes'][0],  # Will be updated per experiment
