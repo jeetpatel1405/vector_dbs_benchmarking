@@ -1,0 +1,8 @@
+Benchmark,Status,Duration
+run_qdrant_ingestion_benchmark,SUCCESS,103
+run_faiss_ingestion_benchmark,SUCCESS,376
+run_chroma_ingestion_benchmark,SUCCESS,85
+run_milvus_ingestion_benchmark,SUCCESS,189
+run_weaviate_ingestion_benchmark,SUCCESS,103
+run_pgvector_ingestion_benchmark,SUCCESS,86
+run_opensearch_ingestion_benchmark,SUCCESS,91

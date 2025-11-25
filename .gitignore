@@ -76,7 +76,14 @@ test_opensearch/
 *.sqlite3
 
 # Results and Outputs
-results/
+# Ignore experiment folders but keep dated results
+results/*_experiment_*/
+results/*.png
+results/*.csv
+results/.DS_Store
+# Keep dated result folders (format: *_results_YYYYMMDD or full_suite_*)
+!results/*_results_*/
+!results/full_suite_*/
 plots/*.png
 plots/*.pdf
 plots/*.svg
