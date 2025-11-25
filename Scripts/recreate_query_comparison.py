@@ -157,7 +157,7 @@ def create_comparison_plot(results, output_path):
         ax4.set_title('Performance Summary at K=5', fontsize=13, fontweight='bold', pad=10)
         ax4.set_xticks(x)
         ax4.set_xticklabels(dbs, rotation=45, ha='right', fontsize=10)
-        ax4.legend(fontsize=10, loc='upper left')
+        ax4.legend(fontsize=10, loc='upper right')
         ax4.set_ylim([0, 110])
         ax4.grid(axis='y', alpha=0.3, linestyle='--')
 
@@ -172,8 +172,8 @@ def create_comparison_plot(results, output_path):
                 f"{data.get('avg_top1_similarity', 0):.3f}"
             ])
 
-        # Position table in the middle-right area
-        table_ax = ax4.inset_axes([0.35, 0.35, 0.63, 0.5])
+        # Position table in the bottom-left area, max height at y=45
+        table_ax = ax4.inset_axes([0.02, 0.02, 0.55, 0.38])
         table_ax.axis('off')
 
         table = table_ax.table(
