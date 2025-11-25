@@ -172,8 +172,8 @@ def create_comparison_plot(results, output_path):
                 f"{data.get('avg_top1_similarity', 0):.3f}"
             ])
 
-        # Position table in the bottom-left area, max height at y=45
-        table_ax = ax4.inset_axes([0.02, 0.02, 0.55, 0.38])
+        # Position table in the bottom-left area, bottom on x-axis
+        table_ax = ax4.inset_axes([0.02, 0.0, 0.55, 0.30])
         table_ax.axis('off')
 
         table = table_ax.table(
