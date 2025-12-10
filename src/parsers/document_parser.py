@@ -214,6 +214,21 @@ class IngestionMetrics:
     total_size_bytes: int
     chunk_sizes: List[int]
 
+    @property
+    def parsing_time(self) -> float:
+        """Convenience property for backward compatibility."""
+        return self.total_parsing_time
+
+    @property
+    def embedding_time(self) -> float:
+        """Convenience property for backward compatibility."""
+        return self.total_embedding_time
+
+    @property
+    def insertion_time(self) -> float:
+        """Convenience property for backward compatibility."""
+        return self.total_insertion_time
+
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary."""
         return {

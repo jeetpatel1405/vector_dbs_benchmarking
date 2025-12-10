@@ -22,6 +22,7 @@ sys.path.insert(0, str(project_root))
 from src.vector_dbs.opensearch_adapter import OpenSearchRAGBenchmark
 from src.embeddings.embedding_generator import get_embedding_generator
 from src.parsers.document_parser import DocumentParser, Document
+from src.monitoring.resource_monitor import ResourceMonitor
 
 # Configuration
 CONFIG = {
@@ -182,11 +183,21 @@ def main():
     print(f"Test cases: {len(test_cases)}")
     print(f"Top-k values: {CONFIG['top_k_values']}")
 
+    # Extract ground truth document IDs from test cases
+    ground_truth_doc_ids = [tc['relevant_doc_ids'] for tc in test_cases]
+    queries = [tc['query'] for tc in test_cases]
+
     results = []
     for top_k in CONFIG['top_k_values']:
         print(f"\n  Testing top_k={top_k}...")
+
+        # Start resource monitoring for this top_k
+        resource_monitor = ResourceMonitor()
+        resource_monitor.start()
+
         latencies = []
         all_similarities = []  # Track all similarity scores
+        query_results_chunks = []
 
         for i, tc in enumerate(test_cases, 1):
             try:
@@ -197,6 +208,7 @@ def main():
                 result_ids, query_time, similarity_scores = benchmark.query(query_embedding, top_k=top_k)
                 latency = (time.time() - start) * 1000  # Convert to ms
                 latencies.append(latency)
+                query_results_chunks.append(result_ids)
 
                 # Track similarity scores for quality metrics
                 if similarity_scores:
@@ -213,6 +225,9 @@ def main():
                     traceback.print_exc()
                 continue
 
+        # Stop resource monitoring
+        resource_metrics = resource_monitor.stop()
+
         if latencies:
             latencies_sorted = sorted(latencies)
             avg_latency = np.mean(latencies)
@@ -227,6 +242,11 @@ def main():
             avg_top1_similarity = float(np.mean([sims[0] for sims in all_similarities if len(sims) > 0])) if all_similarities else 0.0
             min_similarity = float(np.mean([np.min(sims) for sims in all_similarities])) if all_similarities else 0.0
 
+            # Calculate document-level IR metrics
+            recall_at_k = float(benchmark.calculate_document_level_recall(query_results_chunks, ground_truth_doc_ids, top_k))
+            precision_at_k = float(benchmark.calculate_document_level_precision(query_results_chunks, ground_truth_doc_ids, top_k))
+            mrr = float(benchmark.calculate_document_level_mrr(query_results_chunks, ground_truth_doc_ids))
+
             result = {
                 'top_k': top_k,
                 'num_queries': len(latencies),
@@ -240,13 +260,20 @@ def main():
                 # Quality metrics
                 'avg_similarity': avg_similarity,
                 'avg_top1_similarity': avg_top1_similarity,
-                'min_similarity': min_similarity
+                'min_similarity': min_similarity,
+                # IR metrics (document-level)
+                f'recall_at_{top_k}': recall_at_k,
+                f'precision_at_{top_k}': precision_at_k,
+                'mrr': mrr,
+                # Resource metrics
+                'resource_metrics': resource_metrics.to_dict() if resource_metrics else None
             }
             results.append(result)
 
             print(f"    Avg: {avg_latency:.2f}ms, P50: {p50_latency:.2f}ms, "
                   f"P95: {p95_latency:.2f}ms, QPS: {result['queries_per_second']:.2f}")
             print(f"    Quality: avg_sim={avg_similarity:.3f}, top1_sim={avg_top1_similarity:.3f}")
+            print(f"    IR Metrics: Recall@{top_k}={recall_at_k:.3f}, Precision@{top_k}={precision_at_k:.3f}, MRR={mrr:.3f}")
 
     # Disconnect from Qdrant
     benchmark.disconnect()
@@ -354,19 +381,22 @@ def main():
     print(f"Chunks: {num_chunks}")
     print(f"Ingestion time: {ingest_time:.2f}s")
     print(f"\nQuery Performance & Quality:")
-    print(f"{'Top-K':<8} {'Avg (ms)':<12} {'P95 (ms)':<12} {'QPS':<10} {'Avg Sim':<10} {'Top-1 Sim':<10}")
-    print("-" * 70)
+    print(f"{'Top-K':<8} {'Avg (ms)':<12} {'P95 (ms)':<12} {'QPS':<10} {'Recall':<10} {'Precision':<12} {'MRR':<10}")
+    print("-" * 80)
     for r in results:
+        recall_key = f'recall_at_{r["top_k"]}'
+        precision_key = f'precision_at_{r["top_k"]}'
         print(f"{r['top_k']:<8} {r['avg_latency_ms']:<12.2f} "
               f"{r['p95_latency_ms']:<12.2f} {r['queries_per_second']:<10.2f} "
-              f"{r['avg_similarity']:<10.3f} {r['avg_top1_similarity']:<10.3f}")
+              f"{r[recall_key]:<10.3f} {r[precision_key]:<12.3f} {r['mrr']:<10.3f}")
 
     print(f"\n📊 Results: {results_file}")
     print(f"📈 Plot: {plot_file}")
-    print("\n✅ You now have experimental data with quality metrics!")
-    print("   - Semantic similarity measures retrieval quality (0-1 scale)")
-    print("   - Higher similarity = more relevant results")
-    print("   - See IMPLEMENTATION_PLAN.md for next steps.")
+    print("\n✅ Benchmark complete with IR metrics!")
+    print("   - Recall@K: Fraction of relevant docs retrieved")
+    print("   - Precision@K: Fraction of retrieved docs that are relevant")
+    print("   - MRR: Mean Reciprocal Rank of first relevant result")
+    print("   - All metrics calculated at document level (not chunk level)")
 
     return 0
 

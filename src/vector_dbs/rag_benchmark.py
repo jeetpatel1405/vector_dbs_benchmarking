@@ -48,11 +48,14 @@ class RAGBenchmarkResults:
     p99_query_latency: float
     queries_per_second: float
 
-    # Accuracy metrics
+    # Accuracy metrics (document-level)
     recall_at_1: float
     recall_at_5: float
     recall_at_10: float
+    precision_at_1: float
+    precision_at_5: float
     precision_at_10: float
+    mrr: float  # Mean Reciprocal Rank
 
     # Resource metrics
     ingestion_resources: Optional[Dict[str, Any]] = None
@@ -109,6 +112,7 @@ class RAGBenchmark(ABC):
         self.chunks: List[Chunk] = []
         self.embeddings: Optional[np.ndarray] = None
         self.ground_truth: Optional[List[List[int]]] = None
+        self.chunk_to_doc_map: Dict[int, str] = {}  # Maps chunk_id -> doc_id
 
     @abstractmethod
     def connect(self) -> None:
@@ -200,15 +204,19 @@ class RAGBenchmark(ABC):
         parsing_start = time.time()
 
         all_chunks = []
+        chunk_id = 0
         for doc in documents:
             doc_chunks = self.chunking_strategy.chunk(doc.content, doc.id)
-            # Add document metadata to chunks
+            # Add document metadata to chunks and build mapping
             for chunk in doc_chunks:
                 chunk.metadata.update({
                     'doc_id': doc.id,
                     'source': doc.source,
                     **doc.metadata
                 })
+                # Store chunk_id -> doc_id mapping
+                self.chunk_to_doc_map[chunk_id] = doc.id
+                chunk_id += 1
             all_chunks.extend(doc_chunks)
 
         parsing_time = time.time() - parsing_start
@@ -364,11 +372,167 @@ class RAGBenchmark(ABC):
 
         return np.mean(precisions)
 
+    def calculate_mrr(
+        self,
+        query_results: List[List[int]],
+        ground_truth: List[List[int]]
+    ) -> float:
+        """
+        Calculate Mean Reciprocal Rank (MRR).
+
+        MRR is the average of reciprocal ranks of the first relevant result.
+        If the first relevant item appears at position 3, the reciprocal rank is 1/3.
+
+        Args:
+            query_results: Retrieved chunk IDs for each query
+            ground_truth: True relevant chunk IDs for each query
+
+        Returns:
+            Mean Reciprocal Rank (MRR)
+        """
+        reciprocal_ranks = []
+        for results, truth in zip(query_results, ground_truth):
+            truth_set = set(truth)
+            rank = 0
+            for i, result_id in enumerate(results, 1):
+                if result_id in truth_set:
+                    rank = 1.0 / i
+                    break
+            reciprocal_ranks.append(rank)
+
+        return np.mean(reciprocal_ranks)
+
+    def calculate_document_level_recall(
+        self,
+        query_results_chunks: List[List[int]],
+        ground_truth_docs: List[List[str]],
+        k: int
+    ) -> float:
+        """
+        Calculate recall@k at document level.
+
+        Converts chunk-level results to document-level by using chunk_to_doc_map,
+        then compares against ground truth document IDs.
+
+        Args:
+            query_results_chunks: Retrieved chunk IDs for each query
+            ground_truth_docs: True relevant document IDs for each query
+            k: Number of top results to consider
+
+        Returns:
+            Average recall@k at document level
+        """
+        recalls = []
+        for chunk_results, doc_truth in zip(query_results_chunks, ground_truth_docs):
+            # Convert chunk IDs to document IDs (deduplicate)
+            retrieved_docs = []
+            seen_docs = set()
+            for chunk_id in chunk_results[:k]:
+                doc_id = self.chunk_to_doc_map.get(chunk_id)
+                if doc_id and doc_id not in seen_docs:
+                    retrieved_docs.append(doc_id)
+                    seen_docs.add(doc_id)
+
+            # Calculate recall
+            retrieved_set = set(retrieved_docs)
+            truth_set = set(doc_truth)
+
+            if len(truth_set) > 0:
+                recall = len(retrieved_set & truth_set) / len(truth_set)
+            else:
+                recall = 0.0
+            recalls.append(recall)
+
+        return np.mean(recalls)
+
+    def calculate_document_level_precision(
+        self,
+        query_results_chunks: List[List[int]],
+        ground_truth_docs: List[List[str]],
+        k: int
+    ) -> float:
+        """
+        Calculate precision@k at document level.
+
+        Converts chunk-level results to document-level by using chunk_to_doc_map,
+        then compares against ground truth document IDs.
+
+        Args:
+            query_results_chunks: Retrieved chunk IDs for each query
+            ground_truth_docs: True relevant document IDs for each query
+            k: Number of top results to consider
+
+        Returns:
+            Average precision@k at document level
+        """
+        precisions = []
+        for chunk_results, doc_truth in zip(query_results_chunks, ground_truth_docs):
+            # Convert chunk IDs to document IDs (deduplicate, preserve order)
+            retrieved_docs = []
+            seen_docs = set()
+            for chunk_id in chunk_results[:k]:
+                doc_id = self.chunk_to_doc_map.get(chunk_id)
+                if doc_id and doc_id not in seen_docs:
+                    retrieved_docs.append(doc_id)
+                    seen_docs.add(doc_id)
+
+            # Calculate precision
+            retrieved_set = set(retrieved_docs)
+            truth_set = set(doc_truth)
+
+            if len(retrieved_set) > 0:
+                precision = len(retrieved_set & truth_set) / len(retrieved_set)
+            else:
+                precision = 0.0
+            precisions.append(precision)
+
+        return np.mean(precisions)
+
+    def calculate_document_level_mrr(
+        self,
+        query_results_chunks: List[List[int]],
+        ground_truth_docs: List[List[str]]
+    ) -> float:
+        """
+        Calculate Mean Reciprocal Rank (MRR) at document level.
+
+        Converts chunk-level results to document-level, then finds the rank
+        of the first relevant document.
+
+        Args:
+            query_results_chunks: Retrieved chunk IDs for each query
+            ground_truth_docs: True relevant document IDs for each query
+
+        Returns:
+            Mean Reciprocal Rank at document level
+        """
+        reciprocal_ranks = []
+        for chunk_results, doc_truth in zip(query_results_chunks, ground_truth_docs):
+            # Convert chunk IDs to document IDs (preserve order, deduplicate)
+            retrieved_docs = []
+            seen_docs = set()
+            for chunk_id in chunk_results:
+                doc_id = self.chunk_to_doc_map.get(chunk_id)
+                if doc_id and doc_id not in seen_docs:
+                    retrieved_docs.append(doc_id)
+                    seen_docs.add(doc_id)
+
+            # Find rank of first relevant document
+            truth_set = set(doc_truth)
+            rank = 0.0
+            for i, doc_id in enumerate(retrieved_docs, 1):
+                if doc_id in truth_set:
+                    rank = 1.0 / i
+                    break
+            reciprocal_ranks.append(rank)
+
+        return np.mean(reciprocal_ranks)
+
     def run_full_benchmark(
         self,
         documents: List[Document],
         query_texts: List[str],
-        ground_truth_queries: Optional[List[List[int]]] = None,
+        ground_truth_doc_ids: Optional[List[List[str]]] = None,
         top_k: int = 10,
         batch_size: int = 100
     ) -> RAGBenchmarkResults:
@@ -378,7 +542,7 @@ class RAGBenchmark(ABC):
         Args:
             documents: Documents to ingest
             query_texts: Query strings
-            ground_truth_queries: Ground truth chunk IDs for queries (optional)
+            ground_truth_doc_ids: Ground truth document IDs for queries (optional)
             top_k: Number of results to retrieve
             batch_size: Batch size for operations
 
@@ -419,19 +583,26 @@ class RAGBenchmark(ABC):
             latencies = [qm.latency for qm in query_metrics_list]
 
             # Calculate accuracy metrics if ground truth provided
-            if ground_truth_queries:
+            if ground_truth_doc_ids:
+                # Get query results (chunk IDs)
                 query_results = []
                 for query_text in query_texts:
                     query_embedding = self.embedding_generator.generate_embedding(query_text)
                     result_ids, _ = self.query(query_embedding, top_k)
                     query_results.append(result_ids)
 
-                recall_at_1 = self.calculate_recall(query_results, ground_truth_queries, 1)
-                recall_at_5 = self.calculate_recall(query_results, ground_truth_queries, 5)
-                recall_at_10 = self.calculate_recall(query_results, ground_truth_queries, 10)
-                precision_at_10 = self.calculate_precision(query_results, ground_truth_queries, 10)
+                # Calculate document-level metrics
+                recall_at_1 = self.calculate_document_level_recall(query_results, ground_truth_doc_ids, 1)
+                recall_at_5 = self.calculate_document_level_recall(query_results, ground_truth_doc_ids, 5)
+                recall_at_10 = self.calculate_document_level_recall(query_results, ground_truth_doc_ids, 10)
+                precision_at_1 = self.calculate_document_level_precision(query_results, ground_truth_doc_ids, 1)
+                precision_at_5 = self.calculate_document_level_precision(query_results, ground_truth_doc_ids, 5)
+                precision_at_10 = self.calculate_document_level_precision(query_results, ground_truth_doc_ids, 10)
+                mrr = self.calculate_document_level_mrr(query_results, ground_truth_doc_ids)
             else:
-                recall_at_1 = recall_at_5 = recall_at_10 = precision_at_10 = 0.0
+                recall_at_1 = recall_at_5 = recall_at_10 = 0.0
+                precision_at_1 = precision_at_5 = precision_at_10 = 0.0
+                mrr = 0.0
 
             # Build results
             results = RAGBenchmarkResults(
@@ -458,7 +629,10 @@ class RAGBenchmark(ABC):
                 recall_at_1=recall_at_1,
                 recall_at_5=recall_at_5,
                 recall_at_10=recall_at_10,
+                precision_at_1=precision_at_1,
+                precision_at_5=precision_at_5,
                 precision_at_10=precision_at_10,
+                mrr=mrr,
                 ingestion_resources=ingestion_metrics.to_dict() if hasattr(ingestion_metrics, 'to_dict') else None,
                 query_resources=query_resources.to_dict() if query_resources else None,
                 timestamp=datetime.now().isoformat(),

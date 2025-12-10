@@ -22,6 +22,7 @@ sys.path.insert(0, str(project_root))
 from src.vector_dbs.weaviate_adapter import WeaviateRAGBenchmark
 from src.embeddings.embedding_generator import get_embedding_generator
 from src.parsers.document_parser import DocumentParser, Document
+from src.monitoring.resource_monitor import ResourceMonitor
 
 # Configuration
 CONFIG = {
@@ -177,16 +178,26 @@ def main():
         benchmark.disconnect()
         return 1
 
-    # 7. Run queries at different top-k values
+    # 7. Run queries at different top-k values and calculate IR metrics
     print(f"\n[7/8] Running query latency and quality benchmark...")
     print(f"Test cases: {len(test_cases)}")
     print(f"Top-k values: {CONFIG['top_k_values']}")
 
+    # Extract ground truth document IDs from test cases
+    ground_truth_doc_ids = [tc['relevant_doc_ids'] for tc in test_cases]
+    queries = [tc['query'] for tc in test_cases]
+
     results = []
     for top_k in CONFIG['top_k_values']:
         print(f"\n  Testing top_k={top_k}...")
+
+        # Start resource monitoring for this top_k
+        resource_monitor = ResourceMonitor()
+        resource_monitor.start()
+
         latencies = []
         all_similarities = []  # Track all similarity scores
+        query_results_chunks = []  # Store chunk IDs for IR metrics
 
         for i, tc in enumerate(test_cases, 1):
             try:
@@ -197,6 +208,7 @@ def main():
                 result_ids, query_time, similarity_scores = benchmark.query(query_embedding, top_k=top_k)
                 latency = (time.time() - start) * 1000  # Convert to ms
                 latencies.append(latency)
+                query_results_chunks.append(result_ids)
 
                 # Track similarity scores for quality metrics
                 if similarity_scores:
@@ -213,6 +225,9 @@ def main():
                     traceback.print_exc()
                 continue
 
+        # Stop resource monitoring
+        resource_metrics = resource_monitor.stop()
+
         if latencies:
             latencies_sorted = sorted(latencies)
             avg_latency = np.mean(latencies)
@@ -222,10 +237,15 @@ def main():
             min_latency = min(latencies)
             max_latency = max(latencies)
 
-            # Calculate quality metrics from similarity scores
+            # Calculate similarity-based quality metrics
             avg_similarity = float(np.mean([np.mean(sims) for sims in all_similarities])) if all_similarities else 0.0
             avg_top1_similarity = float(np.mean([sims[0] for sims in all_similarities if len(sims) > 0])) if all_similarities else 0.0
             min_similarity = float(np.mean([np.min(sims) for sims in all_similarities])) if all_similarities else 0.0
+
+            # Calculate document-level IR metrics
+            recall_at_k = float(benchmark.calculate_document_level_recall(query_results_chunks, ground_truth_doc_ids, top_k))
+            precision_at_k = float(benchmark.calculate_document_level_precision(query_results_chunks, ground_truth_doc_ids, top_k))
+            mrr = float(benchmark.calculate_document_level_mrr(query_results_chunks, ground_truth_doc_ids))
 
             result = {
                 'top_k': top_k,
@@ -237,16 +257,23 @@ def main():
                 'min_latency_ms': float(min_latency),
                 'max_latency_ms': float(max_latency),
                 'queries_per_second': 1000.0 / avg_latency if avg_latency > 0 else 0,
-                # Quality metrics
+                # Similarity-based quality metrics
                 'avg_similarity': avg_similarity,
                 'avg_top1_similarity': avg_top1_similarity,
-                'min_similarity': min_similarity
+                'min_similarity': min_similarity,
+                # IR metrics (document-level)
+                f'recall_at_{top_k}': recall_at_k,
+                f'precision_at_{top_k}': precision_at_k,
+                'mrr': mrr,
+                # Resource metrics
+                'resource_metrics': resource_metrics.to_dict() if resource_metrics else None
             }
             results.append(result)
 
             print(f"    Avg: {avg_latency:.2f}ms, P50: {p50_latency:.2f}ms, "
                   f"P95: {p95_latency:.2f}ms, QPS: {result['queries_per_second']:.2f}")
-            print(f"    Quality: avg_sim={avg_similarity:.3f}, top1_sim={avg_top1_similarity:.3f}")
+            print(f"    Similarity: avg={avg_similarity:.3f}, top1={avg_top1_similarity:.3f}")
+            print(f"    IR Metrics: Recall@{top_k}={recall_at_k:.3f}, Precision@{top_k}={precision_at_k:.3f}, MRR={mrr:.3f}")
 
     # Disconnect from Qdrant
     benchmark.disconnect()

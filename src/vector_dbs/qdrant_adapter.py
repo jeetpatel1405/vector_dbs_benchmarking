@@ -140,17 +140,17 @@ class QdrantRAGBenchmark(RAGBenchmark):
         """
         start_time = time.time()
 
-        results = self.client.search(
+        results = self.client.query_points(
             collection_name=self.collection_name,
-            query_vector=query_embedding.tolist(),
+            query=query_embedding.tolist(),
             limit=top_k
-        )
+        ).points
 
         query_time = time.time() - start_time
 
         # Extract IDs and similarity scores
-        result_ids = [hit.id for hit in results]
-        similarity_scores = [hit.score for hit in results]
+        result_ids = [int(point.id) for point in results]
+        similarity_scores = [point.score for point in results]
 
         return result_ids, query_time, similarity_scores
 
