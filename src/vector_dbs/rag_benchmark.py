@@ -260,7 +260,8 @@ class RAGBenchmark(ABC):
             avg_embedding_time_per_chunk=embedding_time / len(all_chunks),
             avg_insertion_time_per_chunk=insertion_time / len(all_chunks),
             total_size_bytes=sum(len(doc.content.encode('utf-8')) for doc in documents),
-            chunk_sizes=chunk_sizes
+            chunk_sizes=chunk_sizes,
+            ingestion_resource_metrics=resource_metrics
         )
 
     def run_queries(
@@ -633,7 +634,11 @@ class RAGBenchmark(ABC):
                 precision_at_5=precision_at_5,
                 precision_at_10=precision_at_10,
                 mrr=mrr,
-                ingestion_resources=ingestion_metrics.to_dict() if hasattr(ingestion_metrics, 'to_dict') else None,
+                ingestion_resources=(
+                    ingestion_metrics.ingestion_resource_metrics.to_dict()
+                    if getattr(ingestion_metrics, 'ingestion_resource_metrics', None) is not None and hasattr(ingestion_metrics.ingestion_resource_metrics, 'to_dict')
+                    else None
+                ),
                 query_resources=query_resources.to_dict() if query_resources else None,
                 timestamp=datetime.now().isoformat(),
                 config=self.db_config

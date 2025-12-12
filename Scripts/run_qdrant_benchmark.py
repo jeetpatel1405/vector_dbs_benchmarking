@@ -58,7 +58,7 @@ def load_documents(corpus_path: str) -> List[Document]:
     txt_files = list(corpus_dir.glob("*.txt"))
     xml_files = list(corpus_dir.glob("*.xml"))
     all_files = txt_files + xml_files
-    
+
     if not all_files:
         raise FileNotFoundError(f"No supported files found in {corpus_path}")
 
@@ -160,10 +160,10 @@ def main():
         ingest_time = time.time() - ingest_start
 
         num_docs = len(documents)
-        num_chunks = ingest_result.num_chunks if hasattr(ingest_result, 'num_chunks') else 0
-        parsing_time = ingest_result.parsing_time if hasattr(ingest_result, 'parsing_time') else 0
-        embedding_time = ingest_result.embedding_time if hasattr(ingest_result, 'embedding_time') else 0
-        insertion_time = ingest_result.insertion_time if hasattr(ingest_result, 'insertion_time') else 0
+        num_chunks = ingest_result.num_chunks
+        parsing_time = ingest_result.total_parsing_time
+        embedding_time = ingest_result.total_embedding_time
+        insertion_time = ingest_result.total_insertion_time
 
         print(f"✅ Ingestion completed in {ingest_time:.2f}s")
         print(f"   Documents: {num_docs}")
@@ -171,6 +171,16 @@ def main():
         print(f"   Parsing time: {parsing_time:.2f}s")
         print(f"   Embedding time: {embedding_time:.2f}s")
         print(f"   Insertion time: {insertion_time:.2f}s")
+
+        # Display ingestion resource metrics if available
+        if hasattr(ingest_result, 'ingestion_resource_metrics') and ingest_result.ingestion_resource_metrics:
+            rm = ingest_result.ingestion_resource_metrics
+            print(f"   📊 Resource Usage:")
+            print(f"      Duration: {rm.duration:.2f}s")
+            print(f"      CPU: avg={rm.cpu_avg:.1f}%, max={rm.cpu_max:.1f}%")
+            print(f"      Memory: avg={rm.memory_avg_mb:.1f}MB, max={rm.memory_max_mb:.1f}MB")
+            if rm.disk_read_total_mb > 0 or rm.disk_write_total_mb > 0:
+                print(f"      Disk: read={rm.disk_read_total_mb:.2f}MB, write={rm.disk_write_total_mb:.2f}MB")
     except Exception as e:
         print(f"❌ Ingestion failed: {e}")
         import traceback
@@ -272,7 +282,12 @@ def main():
                 f'precision_at_{top_k}': precision_at_k,
                 'mrr': mrr,
                 # Resource metrics
-                'resource_metrics': resource_metrics.to_dict() if resource_metrics else None
+                'resource_metrics': resource_metrics.to_dict() if resource_metrics else None,
+                'ingestion_resource_metrics': (
+                    ingest_result.ingestion_resource_metrics.to_dict()
+                    if getattr(ingest_result, 'ingestion_resource_metrics', None) is not None and hasattr(ingest_result.ingestion_resource_metrics, 'to_dict')
+                    else None
+                )
             }
             results.append(result)
 
@@ -403,6 +418,25 @@ def main():
     print("   - Precision@K: Fraction of retrieved docs that are relevant")
     print("   - MRR: Mean Reciprocal Rank of first relevant result")
     print("   - All metrics calculated at document level (not chunk level)")
+
+    # Display resource metrics summary if available
+    resource_summary = {}
+    for r in results:
+        if r.get('resource_metrics'):
+            rm = r['resource_metrics']
+            topk = r['top_k']
+            resource_summary[topk] = {
+                'cpu_avg': rm['cpu']['avg'],
+                'memory_avg': rm['memory']['avg_mb'],
+                'duration': rm['duration']
+            }
+
+    if resource_summary:
+        print(f"\n📊 Resource Usage During Queries:")
+        print(f"{'Top-K':<8} {'Duration(s)':<12} {'CPU Avg(%)':<12} {'Memory(MB)':<12}")
+        print("-" * 48)
+        for topk, metrics in resource_summary.items():
+            print(f"{topk:<8} {metrics['duration']:<12.2f} {metrics['cpu_avg']:<12.1f} {metrics['memory_avg']:<12.1f}")
 
     return 0
 

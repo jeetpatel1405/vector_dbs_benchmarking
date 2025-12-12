@@ -213,6 +213,8 @@ class IngestionMetrics:
     avg_insertion_time_per_chunk: float
     total_size_bytes: int
     chunk_sizes: List[int]
+    # Optional resource metrics collected during ingestion
+    ingestion_resource_metrics: Any = None
 
     @property
     def parsing_time(self) -> float:
@@ -243,5 +245,8 @@ class IngestionMetrics:
             'total_size_bytes': self.total_size_bytes,
             'avg_chunk_size': sum(self.chunk_sizes) / len(self.chunk_sizes) if self.chunk_sizes else 0,
             'min_chunk_size': min(self.chunk_sizes) if self.chunk_sizes else 0,
-            'max_chunk_size': max(self.chunk_sizes) if self.chunk_sizes else 0
+            'max_chunk_size': max(self.chunk_sizes) if self.chunk_sizes else 0,
+            'ingestion_resources': (
+                self.ingestion_resource_metrics.to_dict() if hasattr(self.ingestion_resource_metrics, 'to_dict') and self.ingestion_resource_metrics is not None else None
+            )
         }
