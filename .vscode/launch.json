@@ -1,0 +1,144 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Run Full Suite",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--config", "configs/default.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: ChromaDB Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "chroma", "--config", "configs/chroma.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: FAISS Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "faiss", "--config", "configs/faiss.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Qdrant Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "qdrant", "--config", "configs/qdrant.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: pgvector Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "pgvector", "--config", "configs/pgvector.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Milvus Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "milvus", "--config", "configs/milvus.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Weaviate Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["run", "--database", "weaviate", "--config", "configs/weaviate.yaml"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Ingest Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["ingest", "--database", "chroma", "--corpus", "docs/corpus/sample/"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Benchmark: Query Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["query", "--database", "chroma", "--test-cases", "test_cases.json"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Analyze Results",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["analyze", "--results", "results/"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Generate Visualizations",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.cli",
+            "args": ["visualize", "--results", "results/", "--output", "plots/"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python: Pytest - Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["${file}", "-v", "-s"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python: Pytest - All Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["tests/", "-v", "--cov=src", "--cov-report=html"],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

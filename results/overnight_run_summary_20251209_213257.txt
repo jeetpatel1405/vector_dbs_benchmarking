@@ -1,0 +1,18 @@
+Overnight Run Summary - Tue Dec  9 21:32:57 PST 2025
+=====================================
+
+[1/7] ✅ qdrant - 108 min - Tue Dec  9 23:21:53 PST 2025
+[2/7] ✅ weaviate - 0 min - Tue Dec  9 23:22:35 PST 2025
+[3/7] ✅ milvus - 0 min - Tue Dec  9 23:23:16 PST 2025
+[4/7] ✅ faiss - 0 min - Tue Dec  9 23:23:56 PST 2025
+[5/7] ✅ chroma - 0 min - Tue Dec  9 23:24:37 PST 2025
+[6/7] ✅ opensearch - 0 min - Tue Dec  9 23:25:17 PST 2025
+[7/7] ✅ pgvector - 0 min - Tue Dec  9 23:25:47 PST 2025
+
+=====================================
+Final Summary
+=====================================
+Total duration: 1h 52m
+Succeeded: 7/7
+Failed: 0/7
+

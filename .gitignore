@@ -1,0 +1,132 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+pytest_debug.log
+
+# Type Checking
+.mypy_cache/
+.dmypy.json
+dmyp.json
+.pytype/
+.pyre/
+
+# IDEs
+.vscode/*.log
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.local
+
+# Vector Database Stores
+vector_stores/
+chroma_db/
+faiss_index/
+*.index
+*.pkl
+
+# Test/Development Database Directories
+test_*/
+test_chroma/
+test_faiss/
+test_pgvector/
+test_weaviate/
+test_milvus/
+test_opensearch/
+*.sqlite3
+
+# Results and Outputs
+# Ignore experiment folders but keep dated results
+results/*_experiment_*/
+results/*.png
+results/*.csv
+results/.DS_Store
+# Keep dated result folders (format: *_results_YYYYMMDD or full_suite_*)
+!results/*_results_*/
+!results/full_suite_*/
+plots/*.png
+plots/*.pdf
+plots/*.svg
+!plots/.gitkeep
+
+# Data
+Data/Analysis/*.csv
+Data/Analysis/*.xlsx
+!Data/Analysis/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Documentation builds
+docs/_build/
+docs/_static/
+docs/_templates/
+site/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Large files
+*.tar.gz
+*.zip
+*.7z

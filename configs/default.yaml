@@ -1,0 +1,162 @@
+# RAG Vector Database Benchmark Configuration
+# For research study: "Benchmarking Open-Source Vector Databases for RAG"
+
+# Global settings
+data_dir: "data/sample_docs"
+max_documents: null  # null = use all documents
+chunk_overlap: 50
+top_k: 10
+batch_size: 100
+
+# Test queries
+queries:
+  - "What is machine learning and how does it work?"
+  - "Explain the concept of vector databases"
+  - "How do RAG systems improve language models?"
+  - "What is semantic search and why is it important?"
+  - "Describe the process of text embedding generation"
+  - "What are the trade-offs in chunking strategies?"
+  - "How does cosine similarity work for vector search?"
+  - "What is the difference between HNSW and IVFFlat indexes?"
+  - "Explain the importance of recall and precision in retrieval"
+  - "How can we optimize query performance in vector databases?"
+
+# Vector database configurations
+databases:
+  pgvector:
+    host: pgvector
+    port: 5432
+    database: vectordb
+    user: postgres
+    password: postgres
+    table_name: rag_benchmark
+    index_type: ivfflat  # ivfflat or hnsw
+    lists: 100  # for ivfflat
+    probes: 10  # for ivfflat queries
+    m: 16  # for hnsw
+    ef_construction: 64  # for hnsw
+
+  qdrant:
+    host: qdrant
+    port: 6333
+    collection_name: rag_benchmark
+    prefer_grpc: false
+
+  weaviate:
+    host: host.docker.internal  # or weaviate if using dedicated container
+    port: 8082
+    class_name: RAGBenchmark
+
+# Benchmark scenarios
+# Each scenario tests a specific combination of parameters
+scenarios:
+  # Small chunks with local embeddings
+  - database: pgvector
+    embedding: sentence-transformers-small
+    chunk_size: 256
+    chunk_strategy: sentence
+    description: "pgvector with small chunks and local embeddings"
+
+  - database: qdrant
+    embedding: sentence-transformers-small
+    chunk_size: 256
+    chunk_strategy: sentence
+    description: "Qdrant with small chunks and local embeddings"
+
+  - database: weaviate
+    embedding: sentence-transformers-small
+    chunk_size: 256
+    chunk_strategy: sentence
+    description: "Weaviate with small chunks and local embeddings"
+
+  # Medium chunks with local embeddings
+  - database: pgvector
+    embedding: sentence-transformers-small
+    chunk_size: 512
+    chunk_strategy: sentence
+    description: "pgvector with medium chunks"
+
+  - database: qdrant
+    embedding: sentence-transformers-small
+    chunk_size: 512
+    chunk_strategy: sentence
+    description: "Qdrant with medium chunks"
+
+  - database: weaviate
+    embedding: sentence-transformers-small
+    chunk_size: 512
+    chunk_strategy: sentence
+    description: "Weaviate with medium chunks"
+
+  # Large chunks with local embeddings
+  - database: pgvector
+    embedding: sentence-transformers-small
+    chunk_size: 1024
+    chunk_strategy: sentence
+    description: "pgvector with large chunks"
+
+  - database: qdrant
+    embedding: sentence-transformers-small
+    chunk_size: 1024
+    chunk_strategy: sentence
+    description: "Qdrant with large chunks"
+
+  - database: weaviate
+    embedding: sentence-transformers-small
+    chunk_size: 1024
+    chunk_strategy: sentence
+    description: "Weaviate with large chunks"
+
+  # Different chunking strategies (medium size)
+  - database: pgvector
+    embedding: sentence-transformers-small
+    chunk_size: 512
+    chunk_strategy: fixed
+    description: "pgvector with fixed-size chunking"
+
+  - database: pgvector
+    embedding: sentence-transformers-small
+    chunk_size: 512
+    chunk_strategy: paragraph
+    description: "pgvector with paragraph chunking"
+
+  # Higher dimensional embeddings
+  - database: pgvector
+    embedding: sentence-transformers-medium
+    chunk_size: 512
+    chunk_strategy: sentence
+    description: "pgvector with medium-size embeddings (768d)"
+
+  - database: qdrant
+    embedding: sentence-transformers-medium
+    chunk_size: 512
+    chunk_strategy: sentence
+    description: "Qdrant with medium-size embeddings (768d)"
+
+  # OpenAI embeddings (if API key available)
+  # Uncomment if you have OpenAI API key configured
+  # - database: pgvector
+  #   embedding: openai-small
+  #   chunk_size: 512
+  #   chunk_strategy: sentence
+  #   description: "pgvector with OpenAI embeddings"
+
+  # - database: qdrant
+  #   embedding: openai-small
+  #   chunk_size: 512
+  #   chunk_strategy: sentence
+  #   description: "Qdrant with OpenAI embeddings"
+
+# Quick test scenarios (for development/testing)
+test_scenarios:
+  - database: pgvector
+    embedding: random-small
+    chunk_size: 256
+    chunk_strategy: fixed
+    description: "Quick test with random embeddings"
+
+  - database: qdrant
+    embedding: random-small
+    chunk_size: 256
+    chunk_strategy: fixed
+    description: "Quick test with random embeddings"

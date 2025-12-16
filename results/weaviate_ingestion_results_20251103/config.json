@@ -1,0 +1,27 @@
+{
+  "corpus_path": "Data/test_corpus/documents",
+  "output_dir": "results/weaviate_ingestion_experiment_001",
+  "weaviate_config": {
+    "host": "localhost",
+    "port": 8082,
+    "class_name": "IngestionBenchmark"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_type": "sentence-transformers",
+  "chunk_sizes": [
+    256,
+    512,
+    1024
+  ],
+  "batch_sizes": [
+    50,
+    100
+  ],
+  "doc_counts": [
+    10,
+    20
+  ],
+  "chunk_overlap": 50,
+  "chunk_strategy": "fixed",
+  "n_runs": 1
+}

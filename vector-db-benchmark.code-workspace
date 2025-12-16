@@ -1,0 +1,523 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Vector DB Benchmarking"
+		}
+	],
+	"settings": {
+		// Python Configuration
+		"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+		"python.envFile": "${workspaceFolder}/.env",
+		"python.terminal.activateEnvironment": true,
+		"python.analysis.typeCheckingMode": "basic",
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.diagnosticSeverityOverrides": {
+			"reportUnusedImport": "warning",
+			"reportUnusedVariable": "warning"
+		},
+
+		// Formatting
+		"python.formatting.provider": "black",
+		"python.formatting.blackArgs": [
+			"--line-length=100"
+		],
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		},
+
+		// Linting
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.flake8Enabled": true,
+		"python.linting.mypyEnabled": true,
+		"python.linting.lintOnSave": true,
+
+		// Testing
+		"python.testing.pytestEnabled": true,
+		"python.testing.unittestEnabled": false,
+		"python.testing.pytestArgs": [
+			"tests"
+		],
+
+		// Editor
+		"editor.rulers": [100],
+		"editor.tabSize": 4,
+		"editor.insertSpaces": true,
+		"editor.trimAutoWhitespace": true,
+		"files.trimTrailingWhitespace": true,
+		"files.insertFinalNewline": true,
+		"files.trimFinalNewlines": true,
+
+		// Files
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/*.pyc": true,
+			"**/.pytest_cache": true,
+			"**/.mypy_cache": true,
+			"**/.ruff_cache": true,
+			"**/*.egg-info": true,
+			".venv": false,
+			"**/.DS_Store": true
+		},
+		"files.watcherExclude": {
+			"**/__pycache__": true,
+			"**/.pytest_cache": true,
+			"**/.mypy_cache": true,
+			"**/.ruff_cache": true,
+			"**/vector_stores/**": true,
+			"**/results/**": true
+		},
+
+		// Search
+		"search.exclude": {
+			"**/__pycache__": true,
+			"**/.pytest_cache": true,
+			"**/.mypy_cache": true,
+			"**/vector_stores": true,
+			"**/chroma_db": true,
+			"**/faiss_index": true,
+			"**/*.egg-info": true,
+			".venv": true
+		},
+
+		// Git
+		"git.ignoreLimitWarning": true,
+
+		// Markdown
+		"markdown.preview.fontSize": 14,
+		"markdown.preview.lineHeight": 1.6,
+
+		// YAML
+		"yaml.schemas": {
+			"./configs/default.yaml": [
+				"configs/*.yaml"
+			]
+		},
+
+		// JSON
+		"json.schemas": [
+			{
+				"fileMatch": [
+					"**/corpus_metadata.json"
+				],
+				"schema": {
+					"type": "object",
+					"properties": {
+						"name": {"type": "string"},
+						"description": {"type": "string"},
+						"total_documents": {"type": "number"},
+						"total_size_bytes": {"type": "number"},
+						"document_types": {
+							"type": "array",
+							"items": {"type": "string"}
+						},
+						"topics": {
+							"type": "array",
+							"items": {"type": "string"}
+						},
+						"creation_date": {"type": "string"},
+						"documents": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"filename": {"type": "string"},
+									"size_bytes": {"type": "number"},
+									"num_paragraphs": {"type": "number"},
+									"topics": {
+										"type": "array",
+										"items": {"type": "string"}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				"fileMatch": [
+					"**/test_cases.json"
+				],
+				"schema": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"query": {"type": "string"},
+							"gold_answer": {"type": "string"},
+							"relevant_doc_ids": {
+								"type": "array",
+								"items": {"type": "string"}
+							},
+							"ideal_ranking": {
+								"type": "array",
+								"items": {"type": "string"}
+							}
+						},
+						"required": ["query", "gold_answer"]
+					}
+				}
+			}
+		],
+
+		// Terminal
+		"terminal.integrated.env.osx": {
+			"PYTHONPATH": "${workspaceFolder}"
+		},
+		"terminal.integrated.env.linux": {
+			"PYTHONPATH": "${workspaceFolder}"
+		},
+		"terminal.integrated.env.windows": {
+			"PYTHONPATH": "${workspaceFolder}"
+		},
+
+		// File Associations
+		"files.associations": {
+			"*.yaml": "yaml",
+			".env.example": "properties",
+			"Dockerfile*": "dockerfile",
+			"docker-compose*.yml": "yaml"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			// Python
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"ms-python.black-formatter",
+			"ms-python.pylint",
+			"ms-python.flake8",
+
+			// Data Science & Jupyter
+			"ms-toolsai.jupyter",
+			"ms-toolsai.jupyter-keymap",
+			"ms-toolsai.jupyter-renderers",
+
+			// Docker
+			"ms-azuretools.vscode-docker",
+
+			// YAML
+			"redhat.vscode-yaml",
+
+			// Markdown
+			"yzhang.markdown-all-in-one",
+			"davidanson.vscode-markdownlint",
+
+			// Git
+			"eamodio.gitlens",
+			"mhutchie.git-graph",
+
+			// Documentation
+			"njpwerner.autodocstring",
+
+			// Code Quality
+			"ms-python.isort",
+			"charliermarsh.ruff",
+
+			// Utilities
+			"streetsidesoftware.code-spell-checker",
+			"wayou.vscode-todo-highlight",
+			"gruntfuggly.todo-tree",
+			"alefragnani.project-manager",
+
+			// CSV/Excel viewing
+			"janisdd.vscode-edit-csv",
+
+			// REST API Testing (for database APIs)
+			"humao.rest-client"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"justMyCode": true,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Benchmark: Run Full Suite",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"run",
+					"--config",
+					"configs/default.yaml"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Benchmark: ChromaDB Only",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"run",
+					"--database",
+					"chroma",
+					"--config",
+					"configs/chroma.yaml"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Benchmark: Ingest Only",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"ingest",
+					"--database",
+					"chroma",
+					"--corpus",
+					"docs/corpus/sample/"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Benchmark: Query Only",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"query",
+					"--database",
+					"chroma",
+					"--test-cases",
+					"test_cases.json"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Analyze Results",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"analyze",
+					"--results",
+					"results/"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Generate Visualizations",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "src.cli",
+				"args": [
+					"visualize",
+					"--results",
+					"results/",
+					"--output",
+					"plots/"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Python: Pytest - Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "pytest",
+				"args": [
+					"${file}",
+					"-v",
+					"-s"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Python: Pytest - All Tests",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "pytest",
+				"args": [
+					"tests/",
+					"-v",
+					"--cov=src",
+					"--cov-report=html"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Docker: Attach to Ollama",
+				"type": "debugpy",
+				"request": "attach",
+				"connect": {
+					"host": "localhost",
+					"port": 5678
+				},
+				"pathMappings": [
+					{
+						"localRoot": "${workspaceFolder}",
+						"remoteRoot": "/app"
+					}
+				]
+			}
+		],
+		"compounds": []
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Setup: Create Virtual Environment",
+				"type": "shell",
+				"command": "python3 -m venv .venv",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Setup: Install Dependencies",
+				"type": "shell",
+				"command": "source .venv/bin/activate && pip install -r requirements.txt",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Setup: Install Dev Dependencies",
+				"type": "shell",
+				"command": "source .venv/bin/activate && pip install -r requirements-dev.txt",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Docker: Start All Services",
+				"type": "shell",
+				"command": "docker-compose up -d",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Docker: Stop All Services",
+				"type": "shell",
+				"command": "docker-compose down",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Docker: View Logs",
+				"type": "shell",
+				"command": "docker-compose logs -f",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Ollama: Pull Mistral Model",
+				"type": "shell",
+				"command": "ollama pull mistral",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Ollama: Serve",
+				"type": "shell",
+				"command": "ollama serve",
+				"isBackground": true,
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Test: Run All Tests",
+				"type": "shell",
+				"command": "source .venv/bin/activate && pytest tests/ -v",
+				"problemMatcher": [],
+				"group": "test"
+			},
+			{
+				"label": "Test: Run with Coverage",
+				"type": "shell",
+				"command": "source .venv/bin/activate && pytest tests/ -v --cov=src --cov-report=html --cov-report=term",
+				"problemMatcher": [],
+				"group": "test"
+			},
+			{
+				"label": "Lint: Run Black",
+				"type": "shell",
+				"command": "source .venv/bin/activate && black src/ tests/",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Lint: Run Pylint",
+				"type": "shell",
+				"command": "source .venv/bin/activate && pylint src/",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Lint: Run MyPy",
+				"type": "shell",
+				"command": "source .venv/bin/activate && mypy src/",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Lint: Run All",
+				"type": "shell",
+				"command": "source .venv/bin/activate && black src/ tests/ && pylint src/ && mypy src/",
+				"problemMatcher": [],
+				"group": "none",
+				"dependsOrder": "sequence"
+			},
+			{
+				"label": "Benchmark: Run Full Suite",
+				"type": "shell",
+				"command": "source .venv/bin/activate && python -m src.cli run --config configs/default.yaml",
+				"problemMatcher": [],
+				"group": "build"
+			},
+			{
+				"label": "Benchmark: Quick Test (Sample Corpus)",
+				"type": "shell",
+				"command": "source .venv/bin/activate && python -m src.cli run --config configs/default.yaml --corpus docs/corpus/sample/",
+				"problemMatcher": [],
+				"group": "build"
+			},
+			{
+				"label": "Clean: Remove Cache Files",
+				"type": "shell",
+				"command": "find . -type d -name '__pycache__' -exec rm -rf {} + && find . -type d -name '.pytest_cache' -exec rm -rf {} + && find . -type d -name '.mypy_cache' -exec rm -rf {} + && find . -type f -name '*.pyc' -delete",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Clean: Remove Vector Stores",
+				"type": "shell",
+				"command": "rm -rf vector_stores/*",
+				"problemMatcher": [],
+				"group": "none"
+			},
+			{
+				"label": "Docs: Generate API Documentation",
+				"type": "shell",
+				"command": "source .venv/bin/activate && cd docs && make html",
+				"problemMatcher": [],
+				"group": "none"
+			}
+		]
+	}
+}

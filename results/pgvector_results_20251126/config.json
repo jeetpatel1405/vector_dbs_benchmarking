@@ -1,0 +1,26 @@
+{
+  "corpus_path": "Data/test_corpus/documents",
+  "test_cases_path": "Data/test_corpus/test_cases.json",
+  "output_dir": "results/pgvector_experiment_001",
+  "pgvector_config": {
+    "host": "localhost",
+    "port": 5433,
+    "database": "vectordb",
+    "user": "postgres",
+    "password": "postgres",
+    "table_name": "benchmark_test"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_type": "sentence-transformers",
+  "chunk_size": 512,
+  "chunk_overlap": 50,
+  "chunk_strategy": "fixed",
+  "top_k_values": [
+    1,
+    3,
+    5,
+    10,
+    20
+  ],
+  "batch_size": 100
+}

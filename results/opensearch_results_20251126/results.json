@@ -1,0 +1,107 @@
+{
+  "database": "opensearch",
+  "config": {
+    "corpus_path": "Data/test_corpus/documents",
+    "test_cases_path": "Data/test_corpus/test_cases.json",
+    "output_dir": "results/opensearch_experiment_001",
+    "opensearch_config": {
+      "host": "localhost",
+      "port": 9200,
+      "index_name": "benchmark_test"
+    },
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_type": "sentence-transformers",
+    "chunk_size": 512,
+    "chunk_overlap": 50,
+    "chunk_strategy": "fixed",
+    "top_k_values": [
+      1,
+      3,
+      5,
+      10,
+      20
+    ],
+    "batch_size": 100
+  },
+  "timestamp": "2025-11-26 16:13:21",
+  "ingestion": {
+    "total_time_sec": 1.010704517364502,
+    "num_documents": 20,
+    "num_chunks": 175,
+    "parsing_time_sec": 0,
+    "embedding_time_sec": 0,
+    "insertion_time_sec": 0
+  },
+  "query_results": [
+    {
+      "top_k": 1,
+      "num_queries": 10,
+      "avg_latency_ms": 19.038081169128418,
+      "p50_latency_ms": 15.983104705810547,
+      "p95_latency_ms": 47.51276969909668,
+      "p99_latency_ms": 47.51276969909668,
+      "min_latency_ms": 13.625144958496094,
+      "max_latency_ms": 47.51276969909668,
+      "queries_per_second": 52.52630194799096,
+      "avg_similarity": 0.731695366033364,
+      "avg_top1_similarity": 0.731695366033364,
+      "min_similarity": 0.731695366033364
+    },
+    {
+      "top_k": 3,
+      "num_queries": 10,
+      "avg_latency_ms": 13.974976539611816,
+      "p50_latency_ms": 14.10984992980957,
+      "p95_latency_ms": 15.555381774902344,
+      "p99_latency_ms": 15.555381774902344,
+      "min_latency_ms": 12.920618057250977,
+      "max_latency_ms": 15.555381774902344,
+      "queries_per_second": 71.55647075081079,
+      "avg_similarity": 0.6881671639046849,
+      "avg_top1_similarity": 0.731695366033364,
+      "min_similarity": 0.6527653063723247
+    },
+    {
+      "top_k": 5,
+      "num_queries": 10,
+      "avg_latency_ms": 14.413666725158691,
+      "p50_latency_ms": 14.719247817993164,
+      "p95_latency_ms": 15.141725540161133,
+      "p99_latency_ms": 15.141725540161133,
+      "min_latency_ms": 13.796091079711914,
+      "max_latency_ms": 15.141725540161133,
+      "queries_per_second": 69.37859873327896,
+      "avg_similarity": 0.6663782903282386,
+      "avg_top1_similarity": 0.731695366033364,
+      "min_similarity": 0.6243870762745451
+    },
+    {
+      "top_k": 10,
+      "num_queries": 10,
+      "avg_latency_ms": 17.42410659790039,
+      "p50_latency_ms": 17.313480377197266,
+      "p95_latency_ms": 18.29981803894043,
+      "p99_latency_ms": 18.29981803894043,
+      "min_latency_ms": 17.169475555419922,
+      "max_latency_ms": 18.29981803894043,
+      "queries_per_second": 57.39175173093238,
+      "avg_similarity": 0.6292957938282127,
+      "avg_top1_similarity": 0.731695366033364,
+      "min_similarity": 0.5739296066976163
+    },
+    {
+      "top_k": 20,
+      "num_queries": 10,
+      "avg_latency_ms": 23.80223274230957,
+      "p50_latency_ms": 23.853778839111328,
+      "p95_latency_ms": 24.76191520690918,
+      "p99_latency_ms": 24.76191520690918,
+      "min_latency_ms": 23.15998077392578,
+      "max_latency_ms": 24.76191520690918,
+      "queries_per_second": 42.012865382265325,
+      "avg_similarity": 0.5740237962864588,
+      "avg_top1_similarity": 0.731695366033364,
+      "min_similarity": 0.4938480676974737
+    }
+  ]
+}

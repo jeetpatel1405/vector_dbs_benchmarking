@@ -1,0 +1,110 @@
+{
+  "database": "pgvector",
+  "config": {
+    "corpus_path": "Data/test_corpus/documents",
+    "test_cases_path": "Data/test_corpus/test_cases.json",
+    "output_dir": "results/pgvector_experiment_001",
+    "pgvector_config": {
+      "host": "localhost",
+      "port": 5433,
+      "database": "vectordb",
+      "user": "postgres",
+      "password": "postgres",
+      "table_name": "benchmark_test"
+    },
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_type": "sentence-transformers",
+    "chunk_size": 512,
+    "chunk_overlap": 50,
+    "chunk_strategy": "fixed",
+    "top_k_values": [
+      1,
+      3,
+      5,
+      10,
+      20
+    ],
+    "batch_size": 100
+  },
+  "timestamp": "2025-11-26 15:38:04",
+  "ingestion": {
+    "total_time_sec": 1.011470079421997,
+    "num_documents": 20,
+    "num_chunks": 175,
+    "parsing_time_sec": 0,
+    "embedding_time_sec": 0,
+    "insertion_time_sec": 0
+  },
+  "query_results": [
+    {
+      "top_k": 1,
+      "num_queries": 10,
+      "avg_latency_ms": 8.536815643310547,
+      "p50_latency_ms": 7.706880569458008,
+      "p95_latency_ms": 13.180255889892578,
+      "p99_latency_ms": 13.180255889892578,
+      "min_latency_ms": 7.3604583740234375,
+      "max_latency_ms": 13.180255889892578,
+      "queries_per_second": 117.13969725744289,
+      "avg_similarity": 0.7316955043610188,
+      "avg_top1_similarity": 0.7316955043610188,
+      "min_similarity": 0.7316955043610188
+    },
+    {
+      "top_k": 3,
+      "num_queries": 10,
+      "avg_latency_ms": 7.330155372619629,
+      "p50_latency_ms": 7.338523864746094,
+      "p95_latency_ms": 7.473945617675781,
+      "p99_latency_ms": 7.473945617675781,
+      "min_latency_ms": 7.163763046264648,
+      "max_latency_ms": 7.473945617675781,
+      "queries_per_second": 136.4227562945399,
+      "avg_similarity": 0.6881672995297022,
+      "avg_top1_similarity": 0.7316955043610188,
+      "min_similarity": 0.6527654470549573
+    },
+    {
+      "top_k": 5,
+      "num_queries": 10,
+      "avg_latency_ms": 7.342028617858887,
+      "p50_latency_ms": 7.376670837402344,
+      "p95_latency_ms": 7.491827011108398,
+      "p99_latency_ms": 7.491827011108398,
+      "min_latency_ms": 7.207155227661133,
+      "max_latency_ms": 7.491827011108398,
+      "queries_per_second": 136.20213867970787,
+      "avg_similarity": 0.6663784187784672,
+      "avg_top1_similarity": 0.7316955043610188,
+      "min_similarity": 0.6243872210898755
+    },
+    {
+      "top_k": 10,
+      "num_queries": 10,
+      "avg_latency_ms": 7.358264923095703,
+      "p50_latency_ms": 7.366418838500977,
+      "p95_latency_ms": 7.482767105102539,
+      "p99_latency_ms": 7.482767105102539,
+      "min_latency_ms": 7.222414016723633,
+      "max_latency_ms": 7.482767105102539,
+      "queries_per_second": 135.901603224594,
+      "avg_similarity": 0.6292959180784159,
+      "avg_top1_similarity": 0.7316955043610188,
+      "min_similarity": 0.5739296922665025
+    },
+    {
+      "top_k": 20,
+      "num_queries": 10,
+      "avg_latency_ms": 7.320380210876465,
+      "p50_latency_ms": 7.361173629760742,
+      "p95_latency_ms": 7.455110549926758,
+      "p99_latency_ms": 7.455110549926758,
+      "min_latency_ms": 7.1964263916015625,
+      "max_latency_ms": 7.455110549926758,
+      "queries_per_second": 136.60492641000002,
+      "avg_similarity": 0.5740239033347645,
+      "avg_top1_similarity": 0.7316955043610188,
+      "min_similarity": 0.49384815735114734
+    }
+  ]
+}

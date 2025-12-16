@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.pylint",
+        "ms-python.flake8",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        "eamodio.gitlens",
+        "njpwerner.autodocstring",
+        "charliermarsh.ruff",
+        "streetsidesoftware.code-spell-checker",
+        "gruntfuggly.todo-tree",
+        "janisdd.vscode-edit-csv"
+    ]
+}
